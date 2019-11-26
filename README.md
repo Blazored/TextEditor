@@ -41,7 +41,7 @@ Then add the JS script at the bottom of the page using the following script tag.
 
 **NOTE** If you're using Blazor WebAssembly then these need to be added to your `wwwroot\index.html`.
 
-I would also suggest adding the following using statement to your main `_Imports.razor` to make referencing the component a bit easier.
+You can add the following using statement to your main `_Imports.razor` to make referencing the component a bit easier.
 
 ```cs
 @using Blazored.TextEditor
@@ -53,15 +53,15 @@ Below is a list of all the options available on the Text Editor.
 
 **Templates**
 
-- `ToolbarContent` (optional) - Allows the user to define the Toolbar (above the editor control or in-line when using the bubble them and a user highlights text in the editor).
+- `ToolbarContent` (optional) - Allows the user to define the Toolbar (above the editor control, or in-line when using the bubble theme, and a user highlights text in the editor).
 - `EditorContent` (Required) - Allows the user to define the initial content
 
 **Parameters**
 
 - `ReadOnly` (Optional - Default: `false`) - Determines if the editor will load in read-only mode. This mode can be toggled.
 - `Placeholder` (Optional - Default: `Compose an epic...`) - The text to show when editor is empty.
-- `Theme` (Optional - Default: `snow`) - Use `snow` for Toolbar on top and `bubble` for inline editing.
-- `DebugLevel` (Optional - Default: `info`) - Determines level of debug information returned to the web browser console window. Options are `error`, `warn`, `log`, or `info`.
+- `Theme` (Optional - Default: `snow`) - Use `snow` to show the Toolbar on top of the editor, and `bubble` for inline editing.
+- `DebugLevel` (Optional - Default: `info`) - Determines the level of debug information returned to the web browser console window. Options are `error`, `warn`, `log`, or `info`.
 
 
 ### Basic Example
