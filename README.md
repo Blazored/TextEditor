@@ -119,11 +119,6 @@ Below is a list of all the options available on the Text Editor.
 BlazoredTextEditor QuillHtml;
 string QuillHTMLContent;
 
-// You could set the content programmatically
-// string QuillHTMLContent = 
-        @"<span><b>Read Only</b> <u>Content</u></span>";
-
-
     public async void GetHTML()
     {
         QuillHTMLContent = await this.QuillHtml.GetHTML();
