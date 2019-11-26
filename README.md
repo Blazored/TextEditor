@@ -1,5 +1,5 @@
 # Blazored TextEditor
-Rich text editor for Blazor applications - Uses [Quill JS](http://https://quilljs.com/ "Quill JS.com")
+Rich text editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ "Quill JS.com")
 
 ![Screenshot](HTMLExample.png)
 
