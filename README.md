@@ -65,7 +65,7 @@ Below is a list of all the options available on the Text Editor.
 
 
 ### Basic Example
-(see code in the Index.razor pages in the repo for more examples)
+(see code in the [Index.razor page](https://github.com/Blazored/TextEditor/blob/master/samples/BlazorServerSide/Pages/Index.razor) in the repo for more examples)
 ```cs
 @using Blazored.TextEditor
 
