@@ -3,11 +3,6 @@ Rich text editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ 
 
 ![Screenshot](HTMLExample.png)
 
-![Screenshot](DeltaExample.png)
-
-![Screenshot](InlineEditingExample.png)
-
-
 
 ### Helpful Articles
 
@@ -126,3 +121,7 @@ string QuillHTMLContent;
     }
 }
 ```
+### Rich Text Screenshot
+![Screenshot](DeltaExample.png)
+### Read Only Screenshot
+![Screenshot](InlineEditingExample.png)
