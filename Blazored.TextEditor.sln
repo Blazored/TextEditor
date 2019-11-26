@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazored.TextEditor", "src\Blazored.TextEditor\Blazored.TextEditor.csproj", "{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerSide", "samples\BlazorServerSide\BlazorServerSide.csproj", "{AEA7320C-E669-4009-B877-20E49D1D1687}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorClientSide", "samples\BlazorClientSide\BlazorClientSide.csproj", "{59EDB617-CA0F-472B-B107-A4E1694A3691}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5DCD4124-DAD2-4777-92CB-16ABA93847C1}"
+	ProjectSection(SolutionItems) = preProject
+		DeltaExample.png = DeltaExample.png
+		HTMLExample.png = HTMLExample.png
+		InlineEditingExample.png = InlineEditingExample.png
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEA7320C-E669-4009-B877-20E49D1D1687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA7320C-E669-4009-B877-20E49D1D1687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA7320C-E669-4009-B877-20E49D1D1687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA7320C-E669-4009-B877-20E49D1D1687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59EDB617-CA0F-472B-B107-A4E1694A3691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59EDB617-CA0F-472B-B107-A4E1694A3691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59EDB617-CA0F-472B-B107-A4E1694A3691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59EDB617-CA0F-472B-B107-A4E1694A3691}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AEA7320C-E669-4009-B877-20E49D1D1687} = {666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}
+		{59EDB617-CA0F-472B-B107-A4E1694A3691} = {666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F1B7D95-9415-4F7A-849C-FBF83101BECF}
+	EndGlobalSection
+EndGlobal
