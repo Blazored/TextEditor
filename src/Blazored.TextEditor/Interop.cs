@@ -58,13 +58,24 @@ namespace Blazored.TextEditor
                 quillElement, Content);
         }
 
+        internal static ValueTask<object> LoadQuillHTMLContent(
+            IJSRuntime jsRuntime,
+            ElementReference quillElement,
+            string quillHTMLContent)
+        {
+            return jsRuntime.InvokeAsync<object>(
+                "QuillFunctions.loadQuillHTMLContent",
+                quillElement, quillHTMLContent);
+        }
+
         internal static ValueTask<object> EnableQuillEditor(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             bool mode)
         {
             return jsRuntime.InvokeAsync<object>(
-                "QuillFunctions.enableQuillEditor", quillElement, mode);
+                "QuillFunctions.enableQuillEditor", 
+                quillElement, mode);
         }
     }
 }

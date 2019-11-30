@@ -74,6 +74,13 @@
                 JSRuntime, QuillElement, Content);
     }
 
+    public async Task LoadHTMLContent(string quillHTMLContent)
+    {
+        var QuillDelta =
+            await Interop.LoadQuillHTMLContent(
+                JSRuntime, QuillElement, quillHTMLContent);
+    }
+
     public async Task EnableEditor(bool mode)
     {
         var QuillDelta =

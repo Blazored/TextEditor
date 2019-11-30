@@ -49,7 +49,7 @@ Below is a list of all the options available on the Text Editor.
 **Templates**
 
 - `ToolbarContent` (optional) - Allows the user to define the Toolbar (above the editor control, or in-line when using the bubble theme, and a user highlights text in the editor).
-- `EditorContent` (Required) - Allows the user to define the initial content
+- `EditorContent` (optional) - Allows the user to define the initial content
 
 **Parameters**
 
@@ -57,6 +57,15 @@ Below is a list of all the options available on the Text Editor.
 - `Placeholder` (Optional - Default: `Compose an epic...`) - The text to show when editor is empty.
 - `Theme` (Optional - Default: `snow`) - Use `snow` to show the Toolbar on top of the editor, and `bubble` for inline editing.
 - `DebugLevel` (Optional - Default: `info`) - Determines the level of debug information returned to the web browser console window. Options are `error`, `warn`, `log`, or `info`.
+
+**Methods**
+
+- `GetText` - Gets the content of the editor as Text.
+- `GetHTML` - Gets the content of the editor as HTML.
+- `GetContent` - Gets the content of the editor in the native Quill JSON Delta format.
+- `LoadContent` (`json`) - Allows the content of the editor to be programmatically set.
+- `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
+- `EnableEditor` (`bool`) - Enables or disables the editor.
 
 
 ### Basic Example
@@ -101,6 +110,8 @@ Below is a list of all the options available on the Text Editor.
 <br />
 <button class="btn btn-primary" 
         @onclick="GetHTML">Get HTML</button>
+<button class="btn btn-primary"
+        @onclick="SetHTML">Set HTML</button>
 <br />
 <div>
     <br />
@@ -117,6 +128,16 @@ string QuillHTMLContent;
     public async void GetHTML()
     {
         QuillHTMLContent = await this.QuillHtml.GetHTML();
+        StateHasChanged();
+    }
+
+    public async void SetHTML()
+    {
+        string QuillContent =
+            @"<a href='http://BlazorHelpWebsite.com/'>" +
+            "<img src='images/BlazorHelpWebsite.gif' /></a>";
+
+        await this.QuillHtml.LoadHTMLContent(QuillContent);
         StateHasChanged();
     }
 }
