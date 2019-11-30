@@ -29,6 +29,9 @@
             content = JSON.parse(quillContent);
             return quillElement.__quill.setContents(content, 'api');
         },
+        loadQuillHTMLContent: function (quillElement, quillHTMLContent) {
+            return quillElement.__quill.root.innerHTML = quillHTMLContent;
+        },
         enableQuillEditor: function (quillElement, mode) {
             quillElement.__quill.enable(mode);
         }

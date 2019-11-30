@@ -41,6 +41,10 @@
         @onclick="GetHTML">
     Get HTML
 </button>
+<button class="btn btn-primary"
+        @onclick="SetHTML">
+    Set HTML
+</button>
 <br />
 <div>
     <br />
@@ -49,7 +53,7 @@
 </div>
 <br />
 <BlazoredTextEditor @ref="@QuillNative"
-             Placeholder="Enter non HTML format like centering...">
+                    Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
             <select class="ql-font">
@@ -108,9 +112,9 @@
 <br />
 <br />
 <BlazoredTextEditor @ref="@QuillReadOnly"
-             ReadOnly="true"
-             Theme="bubble"
-             DebugLevel="log">
+                    ReadOnly="true"
+                    Theme="bubble"
+                    DebugLevel="log">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -139,7 +143,7 @@
         </span>
     </ToolbarContent>
     <EditorContent>
-        @((MarkupString)@QuillReadOnlyContent)
+        <p></p>
     </EditorContent>
 </BlazoredTextEditor>
 <br />
@@ -155,8 +159,6 @@
 
     string QuillHTMLContent;
     string QuillContent;
-    string QuillReadOnlyContent =
-        @"<span><b>Read Only</b> <u>Content</u></span>";
 
     bool mode = false;
 
@@ -165,6 +167,17 @@
         QuillHTMLContent = await this.QuillHtml.GetHTML();
         StateHasChanged();
     }
+
+    public async void SetHTML()
+    {
+        string QuillContent =
+            @"<a href='http://BlazorHelpWebsite.com/'>" +
+            "<img src='images/BlazorHelpWebsite.gif' /></a>";
+
+        await this.QuillHtml.LoadHTMLContent(QuillContent);
+        StateHasChanged();
+    }
+
     public async void GetContent()
     {
         QuillContent = await this.QuillNative.GetContent();

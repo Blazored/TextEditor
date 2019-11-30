@@ -32,12 +32,19 @@
     <EditorContent>
         <h4>This Toolbar works with HTML</h4>
         <a href="http://BlazorHelpWebsite.com">
-        BlazorHelpWebsite.com</a>
+            BlazorHelpWebsite.com
+        </a>
     </EditorContent>
 </BlazoredTextEditor>
 <br />
-<button class="btn btn-primary" 
-        @onclick="GetHTML">Get HTML</button>
+<button class="btn btn-primary"
+        @onclick="GetHTML">
+    Get HTML
+</button>
+<button class="btn btn-primary"
+        @onclick="SetHTML">
+    Set HTML
+</button>
 <br />
 <div>
     <br />
@@ -45,8 +52,8 @@
     @QuillHTMLContent
 </div>
 <br />
-<BlazoredTextEditor @ref="@QuillNative" 
-             Placeholder="Enter non HTML format like centering...">
+<BlazoredTextEditor @ref="@QuillNative"
+                    Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
             <select class="ql-font">
@@ -89,10 +96,14 @@
     </ToolbarContent>
 </BlazoredTextEditor>
 <br />
-<button class="btn btn-primary" 
-        @onclick="GetContent">Get Content</button>
 <button class="btn btn-primary"
-        @onclick="LoadContent">Load Content</button>
+        @onclick="GetContent">
+    Get Content
+</button>
+<button class="btn btn-primary"
+        @onclick="LoadContent">
+    Load Content
+</button>
 <br />
 <br />
 <div>
@@ -101,9 +112,9 @@
 <br />
 <br />
 <BlazoredTextEditor @ref="@QuillReadOnly"
-             ReadOnly="true"
-             Theme="bubble"
-             DebugLevel="log">
+                    ReadOnly="true"
+                    Theme="bubble"
+                    DebugLevel="log">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -132,12 +143,14 @@
         </span>
     </ToolbarContent>
     <EditorContent>
-        @((MarkupString)@QuillReadOnlyContent)
+        <p></p>
     </EditorContent>
 </BlazoredTextEditor>
 <br />
-<button class="btn btn-info" 
-        @onclick="ToggleQuillEditor">Toggle Editor</button>
+<button class="btn btn-info"
+        @onclick="ToggleQuillEditor">
+    Toggle Editor
+</button>
 
 @code {
     BlazoredTextEditor QuillHtml;
@@ -146,8 +159,6 @@
 
     string QuillHTMLContent;
     string QuillContent;
-    string QuillReadOnlyContent = 
-        @"<span><b>Read Only</b> <u>Content</u></span>";
 
     bool mode = false;
 
@@ -156,6 +167,17 @@
         QuillHTMLContent = await this.QuillHtml.GetHTML();
         StateHasChanged();
     }
+
+    public async void SetHTML()
+    {
+        string QuillContent =
+            @"<a href='http://BlazorHelpWebsite.com/'>" +
+            "<img src='images/BlazorHelpWebsite.gif' /></a>";
+
+        await this.QuillHtml.LoadHTMLContent(QuillContent);
+        StateHasChanged();
+    }
+
     public async void GetContent()
     {
         QuillContent = await this.QuillNative.GetContent();
