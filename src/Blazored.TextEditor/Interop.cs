@@ -74,7 +74,8 @@ namespace Blazored.TextEditor
             bool mode)
         {
             return jsRuntime.InvokeAsync<object>(
-                "QuillFunctions.enableQuillEditor", quillElement, mode);
+                "QuillFunctions.enableQuillEditor", 
+                quillElement, mode);
         }
     }
 }
