@@ -6,7 +6,7 @@
     <RootNamespace>Blazored.TextEditor</RootNamespace>
 
     <PackageId>Blazored.TextEditor</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Michael Washington</Authors>
     <Description>Rich text editor for Blazor applications - Uses Quill JS</Description>
     <Copyright>Copyright 2019 (c) Michael Washington. All rights reserved.</Copyright>
