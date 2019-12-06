@@ -9,6 +9,10 @@ Rich text editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ 
 * [Creating Reusable Custom Blazor Controls](http://blazorhelpwebsite.com/Blog/tabid/61/EntryId/4365/Creating-Reusable-Custom-Blazor-Controls.aspx "BlazorHelpWebsite.com")
 * [Creating A Rich Text Editor In Blazor Using Quill](http://blazorhelpwebsite.com/Blog/tabid/61/EntryId/4364/Creating-A-Rich-Text-Editor-In-Blazor-Using-Quill.aspx "BlazorHelpWebsite.com")
 
+### Sample Applications
+
+* [Simple blogging application written in Microsoft Server Side Blazor](http://https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs")
+
 ### Installing
 
 You can install from NuGet using the following command:
