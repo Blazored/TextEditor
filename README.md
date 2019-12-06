@@ -11,7 +11,7 @@ Rich text editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ 
 
 ### Sample Applications
 
-* [Simple blogging application written in Microsoft Server Side Blazor](http://https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs")
+* [Simple blogging application written in Microsoft Server Side Blazor](https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs")
 
 ### Installing
 
