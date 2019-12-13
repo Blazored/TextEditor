@@ -16,7 +16,7 @@
     <RepositoryUrl>https://github.com/Blazored/TextEditor</RepositoryUrl>
     <PackageTags>Blazor Rich Text Editor Quill QuillJS Blazored Razor Components</PackageTags>
     <Company />
-    <PackageIcon>icon.png</PackageIcon>
+    <PackageIcon></PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +29,10 @@
     <EmbeddedResource Include="wwwroot\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
     <EmbeddedResource Include="wwwroot\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(Filename)%(Extension)" />
     <EmbeddedResource Include="wwwroot\**" Exclude="**\*.js;**\*.css" LogicalName="blazor:file:%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="icon.png" />
   </ItemGroup>
 
   <ItemGroup>
