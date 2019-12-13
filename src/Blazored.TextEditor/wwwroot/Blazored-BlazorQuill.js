@@ -34,6 +34,20 @@
         },
         enableQuillEditor: function (quillElement, mode) {
             quillElement.__quill.enable(mode);
+        },
+        insertQuillImage: function (quillElement, imageURL) {
+            var Delta = Quill.import('delta');
+            editorIndex = 0;
+
+            if (quillElement.__quill.getSelection() !== null) {
+                editorIndex = quillElement.__quill.getSelection().index;
+            }
+
+            return quillElement.__quill.updateContents(
+                new Delta()
+                    .retain(editorIndex)
+                    .insert({ image: imageURL },
+                        { alt: imageURL }));
         }
     };
 })();

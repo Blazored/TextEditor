@@ -69,7 +69,8 @@ Below is a list of all the options available on the Text Editor.
 - `GetContent` - Gets the content of the editor in the native Quill JSON Delta format.
 - `LoadContent` (`json`) - Allows the content of the editor to be programmatically set.
 - `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
-- `EnableEditor` (`bool`) - Enables or disables the editor.
+- `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
+- `InsertQuillImage` (`string`) - Inserts an image at the current point in the editor.
 
 
 ### Basic Example

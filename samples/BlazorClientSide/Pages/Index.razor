@@ -104,6 +104,10 @@
         @onclick="LoadContent">
     Load Content
 </button>
+<button class="btn btn-primary"
+        @onclick="InsertImage">
+    Insert Image
+</button>
 <br />
 <br />
 <div>
@@ -188,6 +192,11 @@
     public async void LoadContent()
     {
         await this.QuillNative.LoadContent(QuillContent);
+        StateHasChanged();
+    }
+    public async void InsertImage()
+    {
+        await this.QuillNative.InsertImage("images/BlazorHelpWebsite.gif");
         StateHasChanged();
     }
     async Task ToggleQuillEditor()

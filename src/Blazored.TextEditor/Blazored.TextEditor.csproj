@@ -6,16 +6,17 @@
     <RootNamespace>Blazored.TextEditor</RootNamespace>
 
     <PackageId>Blazored.TextEditor</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Michael Washington</Authors>
     <Description>Rich text editor for Blazor applications - Uses Quill JS</Description>
     <Copyright>Copyright 2019 (c) Michael Washington. All rights reserved.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Blazored/TextEditor</PackageProjectUrl>
-    <PackageIconUrl>https://avatars1.githubusercontent.com/u/39194025</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/Blazored/TextEditor</RepositoryUrl>
     <PackageTags>Blazor Rich Text Editor Quill QuillJS Blazored Razor Components</PackageTags>
     <Company />
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>

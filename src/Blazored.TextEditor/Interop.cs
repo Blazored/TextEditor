@@ -77,5 +77,15 @@ namespace Blazored.TextEditor
                 "QuillFunctions.enableQuillEditor", 
                 quillElement, mode);
         }
+
+        internal static ValueTask<object> InsertQuillImage(
+            IJSRuntime jsRuntime,
+            ElementReference quillElement,
+            string imageURL)
+        {
+            return jsRuntime.InvokeAsync<object>(
+                "QuillFunctions.insertQuillImage",
+                quillElement, imageURL);
+        }
     }
 }
