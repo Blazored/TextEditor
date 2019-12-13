@@ -70,7 +70,7 @@ Below is a list of all the options available on the Text Editor.
 - `LoadContent` (`json`) - Allows the content of the editor to be programmatically set.
 - `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
 - `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
-- `InsertQuillImage` (`string`) - Inserts an image at the current point in the editor.
+- `InsertImage` (`string`) - Inserts an image at the current point in the editor.
 
 
 ### Basic Example
