@@ -1,17 +1,16 @@
 # Blazored TextEditor
-Rich text editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ "Quill JS.com")
+Rich Text Editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ "Quill JS.com")
 
 ![Screenshot](HTMLExample.png)
 
+### Sample Applications
+
+* [Simple blogging application written in Microsoft Server Side Blazor](https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs") - [Contains an example of uploading images]
 
 ### Helpful Articles
 
 * [Creating Reusable Custom Blazor Controls](http://blazorhelpwebsite.com/Blog/tabid/61/EntryId/4365/Creating-Reusable-Custom-Blazor-Controls.aspx "BlazorHelpWebsite.com")
 * [Creating A Rich Text Editor In Blazor Using Quill](http://blazorhelpwebsite.com/Blog/tabid/61/EntryId/4364/Creating-A-Rich-Text-Editor-In-Blazor-Using-Quill.aspx "BlazorHelpWebsite.com")
-
-### Sample Applications
-
-* [Simple blogging application written in Microsoft Server Side Blazor](https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs")
 
 ### Installing
 
@@ -35,6 +34,7 @@ Then add the JS script at the bottom of the page using the following script tag.
 
 ```html
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="_content/Blazored.TextEditor/quill-blot-formatter.min.js"></script>
     <script src="_content/Blazored.TextEditor/Blazored-BlazorQuill.js"></script>
 ```
 

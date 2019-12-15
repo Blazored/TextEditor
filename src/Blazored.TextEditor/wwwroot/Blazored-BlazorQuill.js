@@ -4,10 +4,13 @@
             quillElement, toolBar, readOnly,
             placeholder, theme, debugLevel) {  
 
+            Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
+
             var options = {
                 debug: debugLevel,
                 modules: {
-                    toolbar: toolBar
+                    toolbar: toolBar,
+                    blotFormatter: {}
                 },
                 placeholder: placeholder,
                 readOnly: readOnly,
