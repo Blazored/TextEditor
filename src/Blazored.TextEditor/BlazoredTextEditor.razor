@@ -27,6 +27,33 @@
         = "snow";
 
     [Parameter]
+    public string[] Formats { get; set; }
+        = new[]
+        {
+            "background",
+            "bold",
+            "color",
+            "font",
+            "code",
+            "italic",
+            "link",
+            "size",
+            "strike",
+            "script",
+            "underline",
+            "blockquote",
+            "header",
+            "indent",
+            "list",
+            "align",
+            "direction",
+            "code-block",
+            "formula",
+            "image",
+            "video"
+        };
+
+    [Parameter]
     public string DebugLevel { get; set; }
         = "info";
 
@@ -45,6 +72,7 @@
                 ReadOnly,
                 Placeholder,
                 Theme,
+                Formats,
                 DebugLevel);
         }
     }
