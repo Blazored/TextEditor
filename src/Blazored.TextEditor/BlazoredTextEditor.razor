@@ -1,4 +1,5 @@
 ﻿@inject IJSRuntime JSRuntime
+@implements IDisposable
 
 <div @ref="@ToolBar">
     @ToolbarContent
@@ -30,6 +31,20 @@
     public string DebugLevel { get; set; }
         = "info";
 
+    [JSInvokable]
+    public async Task HtmlChanged()
+    {
+        Value = await GetHTML();
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    [Parameter]
+    public string Value { get; set; }
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    private DotNetObjectReference<BlazoredTextEditor> objRef;
+
     private ElementReference QuillElement;
     private ElementReference ToolBar;
 
@@ -38,6 +53,8 @@
     {
         if (firstRender)
         {
+            objRef = DotNetObjectReference.Create(this);
+
             await Interop.CreateQuill(
                 JSRuntime,
                 QuillElement,
@@ -45,8 +62,14 @@
                 ReadOnly,
                 Placeholder,
                 Theme,
-                DebugLevel);
+                DebugLevel,
+                objRef);
         }
+    }
+
+    public void Dispose()
+    {
+        objRef?.Dispose();
     }
 
     public async Task<string> GetText()
