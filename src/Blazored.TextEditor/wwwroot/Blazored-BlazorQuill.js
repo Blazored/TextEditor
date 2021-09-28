@@ -18,14 +18,10 @@
             };
 
             if (customFonts != null) {
-                console.log("fonts not null");
                 var fontAttributor = Quill.import('formats/font');
                 fontAttributor.whitelist = customFonts;
                 Quill.register(fontAttributor, true);
 
-            }
-            else {
-                console.log("fonts is null");
             }
 
             
@@ -67,11 +63,5 @@
                     .insert({ image: imageURL },
                         { alt: imageURL }));
         },
-        addFont: function () {
-            
-
-
-
-        }
     };
 })();

@@ -90,8 +90,5 @@ namespace Blazored.TextEditor
                 quillElement, imageURL);
         }
 
-        //internal static ValueTask<object> AddFont() { 
-        
-        //}
     }
 }
