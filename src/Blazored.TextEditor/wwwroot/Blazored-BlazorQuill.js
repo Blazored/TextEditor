@@ -2,7 +2,7 @@
     window.QuillFunctions = {        
         createQuill: function (
             quillElement, toolBar, readOnly,
-            placeholder, theme, debugLevel) {  
+            placeholder, theme, debugLevel, customFonts) {  
 
             Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 
@@ -16,6 +16,21 @@
                 readOnly: readOnly,
                 theme: theme
             };
+
+            if (customFonts != null) {
+                console.log("fonts not null");
+                var fontAttributor = Quill.import('formats/font');
+                fontAttributor.whitelist = customFonts;
+                Quill.register(fontAttributor, true);
+
+            }
+            else {
+                console.log("fonts is null");
+            }
+
+            
+
+
 
             new Quill(quillElement, options);
         },
@@ -51,6 +66,12 @@
                     .retain(editorIndex)
                     .insert({ image: imageURL },
                         { alt: imageURL }));
+        },
+        addFont: function () {
+            
+
+
+
         }
     };
 })();

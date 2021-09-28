@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Blazored.TextEditor
@@ -13,12 +14,13 @@ namespace Blazored.TextEditor
             bool readOnly,
             string placeholder,
             string theme,
-            string debugLevel)
+            string debugLevel,
+            List<string> customFonts=null)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.createQuill", 
                 quillElement, toolbar, readOnly, 
-                placeholder, theme, debugLevel);
+                placeholder, theme, debugLevel, customFonts);
         }
 
         internal static ValueTask<string> GetText(
@@ -87,5 +89,9 @@ namespace Blazored.TextEditor
                 "QuillFunctions.insertQuillImage",
                 quillElement, imageURL);
         }
+
+        //internal static ValueTask<object> AddFont() { 
+        
+        //}
     }
 }

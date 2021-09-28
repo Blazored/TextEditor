@@ -1,6 +1,40 @@
 ﻿@page "/"
 @using Blazored.TextEditor
 
+
+<style>
+    /*SET THE DEFAULT FONT*/
+    #TestId {
+        font-family: "Impact";
+        font-size: 18px;
+        height: 375px;
+    }
+
+    #container #toolbar-container.ql-toolbar {
+        padding: 10px;
+    }
+
+    .ql-snow .ql-picker.ql-font, .ql-bubble .ql-picker.ql-font {
+        width: 130px;
+    }
+
+
+
+    /*DEFINE THE CUSTOM FONTS*/
+
+    .ql-font-impact {
+        font-family: 'Impact';
+    }
+
+    .ql-font-courier {
+        font-family: 'Courier';
+    }
+
+    .ql-font-comic {
+        font-family: 'Comic Sans MS';
+    }
+</style>
+
 <BlazoredTextEditor @ref="@QuillHtml">
     <ToolbarContent>
         <select class="ql-header">
@@ -52,14 +86,14 @@
     @QuillHTMLContent
 </div>
 <br />
-<BlazoredTextEditor @ref="@QuillNative"
+<BlazoredTextEditor CustomFonts="Fonts" EditorContainerId="TestId" @ref="@QuillNative"
                     Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
             <select class="ql-font">
-                <option selected=""></option>
-                <option value="serif"></option>
-                <option value="monospace"></option>
+                <option value="impact" selected>Impact</option>
+                <option value="courier">Courier</option>
+                <option value="comic">Comic Sans MS</option>
             </select>
             <select class="ql-size">
                 <option value="small"></option>
@@ -156,14 +190,15 @@
     Toggle Editor
 </button>
 
-@code {
+@code { 
+    List<string> Fonts = new List<string> { "impact", "courier", "comic" };
     BlazoredTextEditor QuillHtml;
     BlazoredTextEditor QuillNative;
     BlazoredTextEditor QuillReadOnly;
 
     string QuillHTMLContent;
     string QuillContent;
-    string QuillReadOnlyContent = 
+    string QuillReadOnlyContent =
         @"<span><b>Read Only</b> <u>Content</u></span>";
 
     bool mode = false;
@@ -205,5 +240,4 @@
     {
         mode = (mode) ? false : true;
         await this.QuillReadOnly.EnableEditor(mode);
-    }
-}
+    } }
