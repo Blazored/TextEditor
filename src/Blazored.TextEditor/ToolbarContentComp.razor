@@ -1,0 +1,80 @@
+﻿
+<span class="ql-formats">
+    <select class="ql-font">
+        @if (ShowFontControls)
+        {
+            @if (Fonts != null)
+            {
+                <option value="impact" selected>Impact</option>
+                <option value="courier">Courier</option>
+                <option value="comic">Comic Sans MS</option>
+            }
+            else
+            {
+                <option selected=""></option>
+                <option value="serif"></option>
+                <option value="monospace"></option>
+            }
+        }
+
+    </select>
+    @if (ShowSizeControls)
+    {
+        <select class="ql-size">
+            <option value="small"></option>
+            <option selected=""></option>
+            <option value="large"></option>
+            <option value="huge"></option>
+        </select>
+    }
+</span>
+@if (ShowStyleControls)
+{
+    <span class="ql-formats">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-strike"></button>
+    </span>
+}
+@if (ShowColorControls)
+{
+    <span class="ql-formats">
+        <select class="ql-color"></select>
+        <select class="ql-background"></select>
+    </span>
+}
+
+@if (true)
+{
+
+}
+<span class="ql-formats">
+    @if (ShowListControls)
+    {
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+    }
+
+    @if (ShowIndentationControls)
+    {
+        <button class="ql-indent" value="-1"></button>
+        <button class="ql-indent" value="+1"></button>
+    }
+    @if (ShowAlignmentControls)
+    {
+        <select class="ql-align">
+            <option selected=""></option>
+            <option value="center"></option>
+            <option value="right"></option>
+            <option value="justify"></option>
+        </select>
+    }
+
+</span>
+@if (ShowHypertextLinkControls)
+{
+    <span class="ql-formats">
+        <button class="ql-link"></button>
+    </span>
+}

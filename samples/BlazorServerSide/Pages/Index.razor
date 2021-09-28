@@ -86,47 +86,11 @@
     @QuillHTMLContent
 </div>
 <br />
+
 <BlazoredTextEditor CustomFonts="Fonts" EditorContainerId="TestId" @ref="@QuillNative"
                     Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
-        <span class="ql-formats">
-            <select class="ql-font">
-                <option value="impact" selected>Impact</option>
-                <option value="courier">Courier</option>
-                <option value="comic">Comic Sans MS</option>
-            </select>
-            <select class="ql-size">
-                <option value="small"></option>
-                <option selected=""></option>
-                <option value="large"></option>
-                <option value="huge"></option>
-            </select>
-        </span>
-        <span class="ql-formats">
-            <button class="ql-bold"></button>
-            <button class="ql-italic"></button>
-            <button class="ql-underline"></button>
-            <button class="ql-strike"></button>
-        </span>
-        <span class="ql-formats">
-            <select class="ql-color"></select>
-            <select class="ql-background"></select>
-        </span>
-        <span class="ql-formats">
-            <button class="ql-list" value="ordered"></button>
-            <button class="ql-list" value="bullet"></button>
-            <button class="ql-indent" value="-1"></button>
-            <button class="ql-indent" value="+1"></button>
-            <select class="ql-align">
-                <option selected=""></option>
-                <option value="center"></option>
-                <option value="right"></option>
-                <option value="justify"></option>
-            </select>
-        </span>
-        <span class="ql-formats">
-            <button class="ql-link"></button>
-        </span>
+        <ToolbarContentComp Fonts="Fonts" ShowAlignmentControls="true" ShowColorControls="false" ShowHypertextLinkControls="false" ShowIndentationControls="false" ShowListControls="true" ShowSizeControls="true" ShowStyleControls="false"></ToolbarContentComp>
     </ToolbarContent>
 </BlazoredTextEditor>
 <br />
