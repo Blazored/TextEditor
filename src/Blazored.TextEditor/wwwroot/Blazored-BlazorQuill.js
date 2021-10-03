@@ -14,9 +14,12 @@
                 },
                 placeholder: placeholder,
                 readOnly: readOnly,
-                theme: theme,
-                formats: formats
+                theme: theme
             };
+
+            if (formats) {
+                options.formats = formats;
+            }
 
             new Quill(quillElement, options);
         },
