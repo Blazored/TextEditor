@@ -27,6 +27,10 @@
         = "snow";
 
     [Parameter]
+    public string[] Formats { get; set; }
+        = null;
+
+    [Parameter]
     public string DebugLevel { get; set; }
         = "info";
 
@@ -45,6 +49,7 @@
                 ReadOnly,
                 Placeholder,
                 Theme,
+                Formats,
                 DebugLevel);
         }
     }
