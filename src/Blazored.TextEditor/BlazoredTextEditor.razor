@@ -1,6 +1,16 @@
 ﻿@inject IJSRuntime JSRuntime
-
+@using Blazored.TextEditor.Internal 
 <div @ref="@ToolBar">
+    @if (Toolbar != null)
+    {
+        <CascadingValue Value="Toolbar">
+            <CascadingValue Value="Fonts">
+                <ToolbarContentComp></ToolbarContentComp>
+            </CascadingValue>
+        </CascadingValue>
+
+    }
+
     @ToolbarContent
 </div>
 <div id="@EditorContainerId" @ref="@QuillElement">
@@ -9,7 +19,9 @@
 
 @code {
     [Parameter]
-    public List<string> CustomFonts { get; set; }
+    public Toolbar Toolbar { get; set; }
+    [Parameter]
+    public List<string> Fonts { get; set; }
     [Parameter]
     public string EditorContainerId { get; set; }
     [Parameter]
@@ -49,7 +61,7 @@
                 ReadOnly,
                 Placeholder,
                 Theme,
-                DebugLevel, CustomFonts);
+                DebugLevel, Fonts);
         }
     }
 

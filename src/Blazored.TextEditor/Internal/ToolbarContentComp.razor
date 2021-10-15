@@ -1,0 +1,112 @@
+﻿<select class="ql-font">
+    @if (Toolbar.ShowFontControls)
+    {
+        @if (Fonts != null)
+        {
+            for (int i = 0; i < Fonts.Count(); i++)
+            {
+                if (i == 0)
+                {
+                    <option value="@Fonts[i]" selected>@Fonts[i]</option>
+                }
+                else
+                {
+                    <option value="@Fonts[i]">@Fonts[i]</option>
+                }
+            }
+        }
+        else
+        {
+            <option selected=""></option>
+            <option value="serif"></option>
+            <option value="monospace"></option>
+        }
+    }
+
+</select>
+@if (Toolbar.ShowSizeControls)
+{
+    <select class="ql-size">
+        <option value="small"></option>
+        <option selected=""></option>
+        <option value="large"></option>
+        <option value="huge"></option>
+    </select>
+}
+@if (Toolbar.ShowStyleControls)
+{
+    <button class="ql-bold"></button>
+    <button class="ql-italic"></button>
+    <button class="ql-underline"></button>
+    <button class="ql-strike"></button>
+}
+@if (Toolbar.ShowColorControls)
+{
+    <select class="ql-color"></select>
+    <select class="ql-background"></select>
+}
+
+
+@if (Toolbar.ShowHeaderControls)
+{
+    <button class="ql-header" value="1"></button>
+    <button class="ql-header" value="2"></button>
+}
+@if (Toolbar.ShowQuotationControls)
+{
+    <button class="ql-blockquote"></button>
+}
+@if (Toolbar.ShowCodeBlockControls)
+{
+    <button class="ql-code-block"></button>
+}
+@if (Toolbar.ShowListControls)
+{
+    <button class="ql-list" value="ordered"></button>
+    <button class="ql-list" value="bullet"></button>
+}
+
+@if (Toolbar.ShowIndentationControls)
+{
+    <button class="ql-indent" value="-1"></button>
+    <button class="ql-indent" value="+1"></button>
+}
+@if (Toolbar.ShowAlignmentControls)
+{
+    <select class="ql-align">
+        <option selected=""></option>
+        <option value="center"></option>
+        <option value="right"></option>
+        <option value="justify"></option>
+    </select>
+}
+@if (Toolbar.ShowDirectionControls)
+{
+    <button class="ql-direction" value="rtl" type="button"></button>
+}
+
+
+@if (Toolbar.ShowHypertextLinkControls)
+{
+    <button class="ql-link"></button>
+}
+@if (Toolbar.ShowInsertImageControls)
+{
+    <button class="ql-image"></button>
+}
+@if (Toolbar.ShowEmbedVideoControls)
+{
+    <button class="ql-video"></button>
+}
+@if (Toolbar.ShowMathControls)
+{
+    <button class="ql-formula"></button>
+    <button class="ql-script" value="sub"></button>
+    <button class="ql-script" value="super"></button>
+}
+
+
+@if (Toolbar.ShowCleanFormattingControls)
+{
+    <button class="ql-clean"></button>
+}
