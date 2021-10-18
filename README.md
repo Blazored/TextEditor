@@ -150,3 +150,7 @@ string QuillHTMLContent;
 ![Screenshot](DeltaExample.png)
 ### Read Only Screenshot
 ![Screenshot](InlineEditingExample.png)
+
+# Blazored TextEditor Forks
+
+* [WYSIWYGTextEditor](https://github.com/somegenericdev/TextEditor/ "WYSIWYGTextEditor")
