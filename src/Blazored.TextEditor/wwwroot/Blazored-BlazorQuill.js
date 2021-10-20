@@ -55,6 +55,19 @@
                     .retain(editorIndex)
                     .insert({ image: imageURL },
                         { alt: imageURL }));
+        },
+        insertQuillText: function (quillElement, text) {
+            editorIndex = 0;
+            selectionLength = 0;
+
+            if (quillElement.__quill.getSelection() !== null) {
+                selection = quillElement.__quill.getSelection();
+                editorIndex = selection.index;
+                selectionLength = selection.length;
+            }
+
+            return quillElement.__quill.deleteText(editorIndex, selectionLength)
+                .concat(quillElement.__quill.insertText(editorIndex, text));
         }
     };
 })();
