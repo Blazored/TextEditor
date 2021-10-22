@@ -108,6 +108,10 @@
         @onclick="InsertImage">
     Insert Image
 </button>
+<button class="btn btn-primary"
+        @onclick="InsertText">
+    Insert Text
+</button>
 <br />
 <br />
 <div>
@@ -198,6 +202,12 @@
     public async void InsertImage()
     {
         await this.QuillNative.InsertImage("images/BlazorHelpWebsite.gif");
+        StateHasChanged();
+    }
+
+    public async void InsertText()
+    {
+        await this.QuillNative.InsertText("Some Text");
         StateHasChanged();
     }
 

@@ -93,6 +93,13 @@
                 JSRuntime, QuillElement, ImageURL);
     }
 
+    public async Task InsertText(string text)
+    {
+        var QuillDelta =
+            await Interop.InsertQuillText(
+                JSRuntime, QuillElement, text);
+    }
+
     public async Task EnableEditor(bool mode)
     {
         var QuillDelta =
