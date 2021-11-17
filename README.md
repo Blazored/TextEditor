@@ -21,7 +21,7 @@ You can install from NuGet using the following command:
 Or via the Visual Studio package manger.
 
 ### Setup
-Blazor Server applications will need to include the following CSS and JS files in their `Pages\_Host.cshtml`.
+Blazor Server applications will need to include the following CSS and JS files in their `Pages\_Host.cshtml` (or `Pages/_Layout.cshtml` if using .Net 6).
 
 In the `head` tag add the following CSS.
 
