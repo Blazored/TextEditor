@@ -154,4 +154,4 @@ string QuillHTMLContent;
 
 # Blazored TextEditor Forks
 
-* [WYSIWYGTextEditor](https://github.com/somegenericdev/TextEditor/ "WYSIWYGTextEditor")
+* [WYSIWYGTextEditor](https://github.com/somegenericdev/WYSIWYGTextEditor)
