@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'windows-latest'
 
 variables:
   buildConfiguration: 'Release'
