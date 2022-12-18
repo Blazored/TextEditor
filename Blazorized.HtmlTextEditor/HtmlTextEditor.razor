@@ -1,0 +1,19 @@
+﻿<div id="@Id">
+    <div @ref="@_toolBar" id="@_generatedToolBarId" class="@CalculateToolBarClass(Toolbar)">
+        @if (Toolbar != null)
+        {
+            <CascadingValue Value="Toolbar">
+                <CascadingValue Value="Fonts">
+                    <ToolbarContentComposer></ToolbarContentComposer>
+                </CascadingValue>
+            </CascadingValue>
+        }
+                   @ToolbarContent
+            
+    </div>
+    <div id="editor" @ref="@_quillElement">
+        @EditorContent
+    </div>
+</div>
+
+

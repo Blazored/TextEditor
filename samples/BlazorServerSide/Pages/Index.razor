@@ -1,7 +1,7 @@
 ﻿@page "/"
-@using Blazored.TextEditor
+@using Blazorized.HtmlTextEditor
 
-<BlazoredTextEditor @ref="@QuillHtml">
+<HtmlTextEditor @ref="@QuillHtml">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -35,10 +35,10 @@
             BlazorHelpWebsite.com
         </a>
     </EditorContent>
-</BlazoredTextEditor>
+</HtmlTextEditor>
 <br />
 <button class="btn btn-primary"
-        @onclick="GetHTML">
+        @onclick="GetHtml">
     Get HTML
 </button>
 <button class="btn btn-primary"
@@ -52,7 +52,7 @@
     @QuillHTMLContent
 </div>
 <br />
-<BlazoredTextEditor @ref="@QuillNative"
+<HtmlTextEditor @ref="@QuillNative"
                     Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
@@ -94,7 +94,7 @@
             <button class="ql-link"></button>
         </span>
     </ToolbarContent>
-</BlazoredTextEditor>
+</HtmlTextEditor>
 <br />
 <button class="btn btn-primary"
         @onclick="GetContent">
@@ -119,9 +119,9 @@
 </div>
 <br />
 <br />
-<BlazoredTextEditor @ref="@QuillReadOnly"
+<HtmlTextEditor @ref="@QuillReadOnly"
                     ReadOnly="true"
-                    Theme="bubble"
+                Theme="EditorTheme.Bubble"
                     DebugLevel="log">
     <ToolbarContent>
         <select class="ql-header">
@@ -153,67 +153,10 @@
     <EditorContent>
         @((MarkupString)@QuillReadOnlyContent)
     </EditorContent>
-</BlazoredTextEditor>
+</HtmlTextEditor>
 <br />
 <button class="btn btn-info"
         @onclick="ToggleQuillEditor">
     Toggle Editor
 </button>
 
-@code {
-    BlazoredTextEditor QuillHtml;
-    BlazoredTextEditor QuillNative;
-    BlazoredTextEditor QuillReadOnly;
-
-    string QuillHTMLContent;
-    string QuillContent;
-    string QuillReadOnlyContent = 
-        @"<span><b>Read Only</b> <u>Content</u></span>";
-
-    bool mode = false;
-
-    public async void GetHTML()
-    {
-        QuillHTMLContent = await this.QuillHtml.GetHTML();
-        StateHasChanged();
-    }
-
-    public async void SetHTML()
-    {
-        string QuillContent =
-            @"<a href='http://BlazorHelpWebsite.com/'>" +
-            "<img src='images/BlazorHelpWebsite.gif' /></a>";
-
-        await this.QuillHtml.LoadHTMLContent(QuillContent);
-        StateHasChanged();
-    }
-
-    public async void GetContent()
-    {
-        QuillContent = await this.QuillNative.GetContent();
-        StateHasChanged();
-    }
-    public async void LoadContent()
-    {
-        await this.QuillNative.LoadContent(QuillContent);
-        StateHasChanged();
-    }
-
-    public async void InsertImage()
-    {
-        await this.QuillNative.InsertImage("images/BlazorHelpWebsite.gif");
-        StateHasChanged();
-    }
-
-    public async void InsertText()
-    {
-        await this.QuillNative.InsertText("Some Text");
-        StateHasChanged();
-    }
-
-    async Task ToggleQuillEditor()
-    {
-        mode = (mode) ? false : true;
-        await this.QuillReadOnly.EnableEditor(mode);
-    }
-}

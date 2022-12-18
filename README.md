@@ -16,7 +16,7 @@ Rich Text Editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ 
 
 You can install from NuGet using the following command:
 
-`Install-Package Blazored.TextEditor`
+`Install-Package Blazorized.HtmlTextEditor`
 
 Or via the Visual Studio package manger.
 
@@ -34,8 +34,8 @@ Then add the JS script at the bottom of the page using the following script tag.
 
 ```html
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src="_content/Blazored.TextEditor/quill-blot-formatter.min.js"></script>
-    <script src="_content/Blazored.TextEditor/Blazored-BlazorQuill.js"></script>
+    <script src="_content/Blazorized.HtmlTextEditor/quill-blot-formatter.min.js"></script>
+    <script src="_content/Blazorized.HtmlTextEditor/Blazored-BlazorQuill.js"></script>
 ```
 
 **NOTE** If you're using Blazor WebAssembly then these need to be added to your `wwwroot\index.html`.
@@ -43,7 +43,7 @@ Then add the JS script at the bottom of the page using the following script tag.
 You can add the following using statement to your main `_Imports.razor` to make referencing the component a bit easier.
 
 ```cs
-@using Blazored.TextEditor
+@using Blazorized.HtmlTextEditor
 ```
 
 ## Usage
@@ -65,10 +65,10 @@ Below is a list of all the options available on the Text Editor.
 **Methods**
 
 - `GetText` - Gets the content of the editor as Text.
-- `GetHTML` - Gets the content of the editor as HTML.
+- `GetHtml` - Gets the content of the editor as HTML.
 - `GetContent` - Gets the content of the editor in the native Quill JSON Delta format.
 - `LoadContent` (`json`) - Allows the content of the editor to be programmatically set.
-- `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
+- `LoadHtmlContent` (`string`) - Allows the content of the editor to be programmatically set.
 - `InsertImage` (`string`) - Inserts an image at the current point in the editor.
 - `InsertText` (`string`) - Inserts text at the current point in the editor.
 
@@ -76,9 +76,9 @@ Below is a list of all the options available on the Text Editor.
 ### Basic Example
 (see code in the [Index.razor page](https://github.com/Blazored/TextEditor/blob/main/samples/BlazorServerSide/Pages/Index.razor) in the repo for more examples)
 ```cs
-@using Blazored.TextEditor
+@using Blazorized.HtmlTextEditor
 
-<BlazoredTextEditor @ref="@QuillHtml">
+<HtmlTextEditor @ref="@QuillHtml">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -111,10 +111,10 @@ Below is a list of all the options available on the Text Editor.
         <a href="http://BlazorHelpWebsite.com">
         BlazorHelpWebsite.com</a>
     </EditorContent>
-</BlazoredTextEditor>
+</HtmlTextEditor>
 <br />
 <button class="btn btn-primary" 
-        @onclick="GetHTML">Get HTML</button>
+        @onclick="GetHtml">Get HTML</button>
 <button class="btn btn-primary"
         @onclick="SetHTML">Set HTML</button>
 <br />
@@ -127,12 +127,12 @@ Below is a list of all the options available on the Text Editor.
 
 @code {
 
-BlazoredTextEditor QuillHtml;
+HtmlTextEditor QuillHtml;
 string QuillHTMLContent;
 
-    public async void GetHTML()
+    public async void GetHtml()
     {
-        QuillHTMLContent = await this.QuillHtml.GetHTML();
+        QuillHTMLContent = await this.QuillHtml.GetHtml();
         StateHasChanged();
     }
 
@@ -142,7 +142,7 @@ string QuillHTMLContent;
             @"<a href='http://BlazorHelpWebsite.com/'>" +
             "<img src='images/BlazorHelpWebsite.gif' /></a>";
 
-        await this.QuillHtml.LoadHTMLContent(QuillContent);
+        await this.QuillHtml.LoadHtmlContent(QuillContent);
         StateHasChanged();
     }
 }
