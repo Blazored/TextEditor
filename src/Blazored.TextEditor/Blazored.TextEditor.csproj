@@ -6,7 +6,7 @@
     <RootNamespace>Blazored.TextEditor</RootNamespace>
 
     <PackageId>Blazored.TextEditor</PackageId>
-    <Version>1.0.8</Version>
+    <Version>1.1.0</Version>
     <Authors>Michael Washington</Authors>
     <Description>Rich text editor for Blazor applications - Uses Quill JS</Description>
     <Copyright>Copyright 2022 (c) Michael Washington. All rights reserved.</Copyright>
@@ -16,7 +16,8 @@
     <RepositoryUrl>https://github.com/Blazored/TextEditor</RepositoryUrl>
     <PackageTags>Blazor Rich Text Editor Quill QuillJS Blazored Razor Components</PackageTags>
     <Company />
-    <PackageReleaseNotes>Adds Id to Div</PackageReleaseNotes>
+    <PackageReleaseNotes>Add support for css class and style attributes</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
