@@ -1,13 +1,23 @@
 ﻿@inject IJSRuntime JSRuntime
 
-<div id="QuillToolBar" @ref="@ToolBar">
-    @ToolbarContent
-</div>
-<div id="QuillEditor" @ref="@QuillElement">
+@if (!BottomToolbar)
+{
+    <div class="@ToolbarCSSClass" id="QuillToolBar" @ref="@ToolBar" style="@ToolbarCssStyle">
+        @ToolbarContent
+    </div>
+}
+<div class="@EditorCssClass" id="QuillEditor" @ref="@QuillElement" style="@EditorCssStyle">
     @EditorContent
 </div>
+@if (BottomToolbar)
+{
+    <div class="@ToolbarCSSClass" id="QuillBottomToolbar" @ref="@ToolBar" style="@ToolbarCssStyle">
+        @ToolbarContent
+    </div>
+}
 
 @code {
+
     [Parameter]
     public RenderFragment EditorContent { get; set; }
 
@@ -33,6 +43,37 @@
     [Parameter]
     public string DebugLevel { get; set; }
         = "info";
+
+    /// <summary>
+    /// Support for normal css classes
+    /// </summary>
+    [Parameter]
+    public string EditorCssClass { get; set; }
+        = string.Empty;
+
+    /// <summary>
+    /// Support for normal css styles
+    /// </summary>
+    [Parameter]
+    public string EditorCssStyle { get; set; }
+        = string.Empty;
+
+    /// <summary>
+    /// Support for normal css classes
+    /// </summary>
+    [Parameter]
+    public string ToolbarCSSClass { get; set; }
+        = string.Empty;
+
+    /// <summary>
+    /// Support for normal css styles
+    /// </summary>
+    [Parameter]
+    public string ToolbarCssStyle { get; set; }
+        = string.Empty;
+
+    [Parameter]
+    public bool BottomToolbar { get; set; }
 
     private ElementReference QuillElement;
     private ElementReference ToolBar;
@@ -106,4 +147,5 @@
             await Interop.EnableQuillEditor(
                 JSRuntime, QuillElement, mode);
     }
+
 }
