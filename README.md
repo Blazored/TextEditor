@@ -147,6 +147,120 @@ string QuillHTMLContent;
     }
 }
 ```
+
+### Alternative Using of the BlazoredTextEditor Component
+Depending on our use case, we may want to add some styling to the Toolbar or Editor. We can also place the Toolbar below the Editor by setting the BottomToolbar property to ‘true’ in the BlazoredTextEditor component:
+```csharp
+<style>
+    .rounded {
+        border-radius: 8px;
+    }
+    .colored-border {
+        border: 4px solid red !important;
+    }
+</style>
+
+<h1>Blazored.TextEditor Usage Examples</h1>
+
+<h3>Basic Example</h3>
+<BlazoredTextEditor
+    @ref="@richEditor">
+    <ToolbarContent>
+        @((MarkupString) toolbar)
+    </ToolbarContent>
+    <EditorContent>
+        @((MarkupString) body)
+    </EditorContent>
+</BlazoredTextEditor>
+<br/>
+<br/>
+
+<h3>Show the Toolbar Below the Editor</h3>
+<BlazoredTextEditor
+    BottomToolbar="true"
+    @ref="@richEditor">
+    <ToolbarContent>
+        @((MarkupString) toolbar)
+    </ToolbarContent>
+    <EditorContent>
+        @((MarkupString) body)
+    </EditorContent>
+</BlazoredTextEditor>
+<br/>
+<br/>
+
+<h3>Styled Toolbar</h3>
+<BlazoredTextEditor
+    @ref="@richEditor"
+    ToolbarCSSClass="rounded colored-border"
+    ToolbarCssStyle="background: lightpink">
+    <ToolbarContent>
+        @((MarkupString) toolbar)
+    </ToolbarContent>
+    <EditorContent>
+        @((MarkupString) body)
+    </EditorContent>
+</BlazoredTextEditor>
+<br/>
+<br/>
+
+<h3>Styled Editor</h3>
+<BlazoredTextEditor
+    EditorCSSClass="rounded colored-border"
+    EditorCssStyle="padding: 10px; background: lightpink"
+    @ref="@richEditor">
+    <ToolbarContent>
+        @((MarkupString) toolbar)
+    </ToolbarContent>
+    <EditorContent>
+        @((MarkupString) body)
+    </EditorContent>
+</BlazoredTextEditor>
+
+@code
+{
+    BlazoredTextEditor richEditor = default!;
+    string toolbar = """"...markup here..."""";
+    string body = """"...markup here..."""";
+
+    protected override void OnInitialized()
+    {
+        toolbar = """"
+            <select class="ql-header">
+                <option selected=""></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+            </select>
+            <span class="ql-formats">
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+            </span>
+            <span class="ql-formats">
+                <select class="ql-color"></select>
+                <select class="ql-background"></select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-list" value="ordered"></button>
+                <button class="ql-list" value="bullet"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-link"></button>
+            </span>
+            """";
+
+        body = """"
+            <h4>This Toolbar works with HTML</h4>
+            <a href="https://BlazorHelpWebsite.com">BlazorHelpWebsite.com</a>
+            """";
+    }
+}
+```
+![examples_screenshot.png](samples%2FTextEditorDemo%2Fwwwroot%2Fexamples_screenshot.png)
 ### Rich Text Screenshot
 ![Screenshot](DeltaExample.png)
 ### Read Only Screenshot
