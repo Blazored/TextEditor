@@ -23,5 +23,5 @@ jobs:
     - name: Restoring packages...
       run: dotnet restore
 
-    - name: Build Local Storage
+    - name: Build Text Editor
       run: dotnet build -c Release --no-restore src/Blazored.$PROJECT_NAME/Blazored.$PROJECT_NAME.csproj
