@@ -1,0 +1,86 @@
+﻿@inherits InputBase<string?>
+@using System.Text;
+@using Blazored.TextEditor;
+@using System.Linq.Expressions;
+
+<BlazoredTextEditor @ref="@QuillHtml" Placeholder=@Placeholder DebugLevel="none" DotNetObjectRef=@thisRef>
+    <ToolbarContent>
+        <select class="ql-header">
+            <option selected=""></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+        </select>
+        <span class="ql-formats">
+            <button class="ql-bold"></button>
+            <button class="ql-italic"></button>
+            <button class="ql-underline"></button>
+            <button class="ql-strike"></button>
+        </span>
+        <span class="ql-formats">
+            <select class="ql-color"></select>
+            <select class="ql-background"></select>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-list" value="ordered"></button>
+            <button class="ql-list" value="bullet"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-link"></button>
+        </span>
+    </ToolbarContent>
+    <EditorContent>
+
+    </EditorContent>
+</BlazoredTextEditor>
+<ValidationMessage For="@ValidationFor" />
+
+@code {
+    [Parameter] public string Label { get; set; } = null!;
+    [Parameter] public Expression<Func<string?>> ValidationFor { get; set; } = null!;
+    [Parameter] public string Placeholder { get; set; } = "text here...";
+
+    BlazoredTextEditor? QuillHtml;
+    private DotNetObjectReference<BlazoredInputRichEdit> thisRef = null!;
+
+    protected override void OnInitialized()
+    {
+        thisRef = DotNetObjectReference.Create(this);
+        base.OnInitialized();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            if (QuillHtml is not null)
+            {
+                try
+                {
+                    await QuillHtml.LoadHTMLContent(CurrentValue);
+                }
+                catch (Exception ex)
+                {
+
+                }
+                await QuillHtml.LoadHTMLContent(CurrentValue); // why?
+            }
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    protected override bool TryParseValueFromString(string? value, out string? result, out string validationErrorMessage)
+    {
+        throw new NotImplementedException();
+    }
+
+    [JSInvokable]
+    public Task OnBlur(string html)
+    {
+        CurrentValue = html;
+        return Task.CompletedTask;
+    }
+}

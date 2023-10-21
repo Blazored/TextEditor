@@ -17,6 +17,8 @@
 }
 
 @code {
+    [Parameter]
+    public object DotNetObjectRef { get; set; }
 
     [Parameter]
     public RenderFragment EditorContent { get; set; }
@@ -91,7 +93,8 @@
                 Placeholder,
                 Theme,
                 Formats,
-                DebugLevel);
+                DebugLevel,
+                DotNetObjectRef);
         }
     }
 

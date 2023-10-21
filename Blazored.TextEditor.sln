@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazored.TextEditor", "src\Blazored.TextEditor\Blazored.TextEditor.csproj", "{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}"
 EndProject
@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEditorDemo", "samples\TextEditorDemo\TextEditorDemo.csproj", "{91541C38-9A34-4AC1-B5F8-BD80DBC5012F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextEditorDemo", "samples\TextEditorDemo\TextEditorDemo.csproj", "{91541C38-9A34-4AC1-B5F8-BD80DBC5012F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerSideForm", "samples\BlazorServerSideForm\BlazorServerSideForm.csproj", "{2C9E0F77-6271-47F0-ADB3-408FC9665F51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{91541C38-9A34-4AC1-B5F8-BD80DBC5012F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91541C38-9A34-4AC1-B5F8-BD80DBC5012F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91541C38-9A34-4AC1-B5F8-BD80DBC5012F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9E0F77-6271-47F0-ADB3-408FC9665F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9E0F77-6271-47F0-ADB3-408FC9665F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9E0F77-6271-47F0-ADB3-408FC9665F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9E0F77-6271-47F0-ADB3-408FC9665F51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{AEA7320C-E669-4009-B877-20E49D1D1687} = {666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}
 		{59EDB617-CA0F-472B-B107-A4E1694A3691} = {666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}
 		{91541C38-9A34-4AC1-B5F8-BD80DBC5012F} = {666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}
+		{2C9E0F77-6271-47F0-ADB3-408FC9665F51} = {666C8D8F-0108-4D22-9FA8-E1C65E42B1E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F1B7D95-9415-4F7A-849C-FBF83101BECF}

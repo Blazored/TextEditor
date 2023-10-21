@@ -1,0 +1,46 @@
+﻿@page "/"
+@using BlazorServerSideForm.Components
+
+<PageTitle>Blazored Rich Edit Input Test</PageTitle>
+
+@if (Context is null || Model is null)
+    return;
+
+<EditForm EditContext=Context OnValidSubmit=OnSubmit class="mt-0">
+    <DataAnnotationsValidator />
+
+    <BlazoredInputRichEdit Label="Description" @bind-Value=Model.Description ValidationFor="()=>Model.Description"></BlazoredInputRichEdit>
+
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+
+    <ValidationSummary></ValidationSummary>
+</EditForm>
+
+<h4 class="mt-5">Submitted Html:</h4>
+<p>
+    [@Html]
+</p>
+
+@code
+{
+    private TestViewModel? Model { get; set; }
+    private EditContext Context { get; set; } = null!;
+    private string? Html { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = new TestViewModel { Description = "<p>html going in</p>" };
+        Context = new EditContext(Model);
+        await base.OnInitializedAsync();
+    }
+
+    private void OnSubmit()
+    {
+        Html = Model?.Description;
+    }
+
+    public class TestViewModel
+    {
+        public string? Description { get; set; }
+    }
+}

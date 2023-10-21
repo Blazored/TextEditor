@@ -1,8 +1,9 @@
 ﻿(function () {
-    window.QuillFunctions = {        
+    window.QuillFunctions = {     
+        dotNetObjReferences: {},
         createQuill: function (
             quillElement, toolBar, readOnly,
-            placeholder, theme, formats, debugLevel) {  
+            placeholder, theme, formats, debugLevel, dotNetObjRef) {  
 
             Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 
@@ -22,6 +23,19 @@
             }
 
             new Quill(quillElement, options);
+
+            // calls C# [JSInvokable] OnBlur when clicking outside of quill
+            if (dotNetObjRef) {
+                this.dotNetObjReferences[quillElement.id] = dotNetObjRef;
+                document.getElementById(quillElement.id).firstChild.onblur = (event) => {
+                    if (Object.keys(this.dotNetObjReferences).length === 0 || !this.dotNetObjReferences.hasOwnProperty(quillElement.id)) {
+                        return;
+                    }
+                    if (event.relatedTarget === null || !document.getElementById("QuillToolBar").contains(event.relatedTarget)) {
+                        this.dotNetObjReferences[quillElement.id].invokeMethodAsync('OnBlur', quillElement.__quill.root.innerHTML);
+                    }
+                }
+            }
         },
         getQuillContent: function(quillElement) {
             return JSON.stringify(quillElement.__quill.getContents());
