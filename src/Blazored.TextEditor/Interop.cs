@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Blazored.TextEditor
 {
-    internal static class Interop
+    public static class Interop
     {
         internal static ValueTask<object> CreateQuill(
             IJSRuntime jsRuntime,
