@@ -63,6 +63,35 @@
     </EditorContent>
 </BlazoredTextEditor>
 
+<br />
+<br />
+
+<hr />
+
+<h3>Syntax</h3>
+<p>See <a href="https://quilljs.com/docs/modules/syntax" target="_blank">Syntax Highlighter Module</a>.</p>
+<p>Off</p>
+<BlazoredTextEditor @ref="@richEditor">
+    <ToolbarContent>
+        @((MarkupString)toolbar)
+    </ToolbarContent>
+    <EditorContent>
+<pre class="ql-syntax" spellcheck="false">const <span class="hljs-keyword">language</span> <span class="hljs-operator">=</span> "JavaScript";
+console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-operator">+</span> <span class="hljs-keyword">language</span> <span class="hljs-operator">+</span> "!");</pre>
+    </EditorContent>
+</BlazoredTextEditor>
+<p>On</p>
+<BlazoredTextEditor Syntax="true"
+                    @ref="@richEditor">
+    <ToolbarContent>
+        @((MarkupString)toolbar)
+    </ToolbarContent>
+    <EditorContent>
+<pre class="ql-syntax" spellcheck="false">const <span class="hljs-keyword">language</span> <span class="hljs-operator">=</span> "JavaScript";
+console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-operator">+</span> <span class="hljs-keyword">language</span> <span class="hljs-operator">+</span> "!");</pre>
+    </EditorContent>
+</BlazoredTextEditor>
+
 @code
 {
     BlazoredTextEditor richEditor = default!;
@@ -96,6 +125,9 @@
             </span>
             <span class="ql-formats">
                 <button class="ql-link"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-code-block"></button>
             </span>
             """";
 
