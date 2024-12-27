@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazored.TextEditor", "src\Blazored.TextEditor\Blazored.TextEditor.csproj", "{A76F9184-D5C2-42AE-9BFA-BDF33A3B1434}"
 EndProject
@@ -13,10 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{666C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5DCD4124-DAD2-4777-92CB-16ABA93847C1}"
 	ProjectSection(SolutionItems) = preProject
-		DeltaExample.png = DeltaExample.png
-		HTMLExample.png = HTMLExample.png
-		InlineEditingExample.png = InlineEditingExample.png
+		docs\images\DeltaExample.png = docs\images\DeltaExample.png
+		docs\images\HTMLExample.png = docs\images\HTMLExample.png
+		docs\images\InlineEditingExample.png = docs\images\InlineEditingExample.png
 		README.md = README.md
+		docs\images\SyntaxHighlighterExample.png = docs\images\SyntaxHighlighterExample.png
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEditorDemo", "samples\TextEditorDemo\TextEditorDemo.csproj", "{91541C38-9A34-4AC1-B5F8-BD80DBC5012F}"
