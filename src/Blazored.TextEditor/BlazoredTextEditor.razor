@@ -75,6 +75,9 @@
     [Parameter]
     public bool BottomToolbar { get; set; }
 
+    [Parameter]
+    public bool Syntax { get; set; }
+
     private ElementReference QuillElement;
     private ElementReference ToolBar;
 
@@ -91,7 +94,9 @@
                 Placeholder,
                 Theme,
                 Formats,
-                DebugLevel);
+                DebugLevel,
+                Syntax
+            );
         }
     }
 
