@@ -160,15 +160,63 @@
     Toggle Editor
 </button>
 
+<hr />
+
+<!-- ----- ----- ----- ----- ----- -->
+<!-- Syntax Highlighter Module -->
+<!-- ----- ----- ----- ----- ----- -->
+<h2>Syntax Highlighter</h2>
+<p>Off</p>
+<BlazoredTextEditor>
+    <ToolbarContent>
+        <span class="ql-formats">
+            <button class="ql-code-block"></button>
+        </span>
+    </ToolbarContent>
+    <EditorContent>
+<pre class="ql-syntax" spellcheck="false">
+const <span class="hljs-keyword">language</span> <span class="hljs-operator">=</span> "JavaScript";
+console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-operator">+</span> <span class="hljs-keyword">language</span> <span class="hljs-operator">+</span> "!");</pre>
+    </EditorContent>
+</BlazoredTextEditor>
+
+<p>On</p>
+<BlazoredTextEditor @ref="@QuillCode" Syntax="true">
+    <ToolbarContent>
+        <span class="ql-formats">
+            <button class="ql-code-block"></button>
+        </span>
+    </ToolbarContent>
+    <EditorContent>
+<pre class="ql-syntax" spellcheck="false">
+const <span class="hljs-keyword">language</span> <span class="hljs-operator">=</span> "JavaScript";
+console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-operator">+</span> <span class="hljs-keyword">language</span> <span class="hljs-operator">+</span> "!");</pre>
+    </EditorContent>
+</BlazoredTextEditor>
+<br />
+<button class="btn btn-primary"
+        @onclick="GetHTMLCode">
+    Get HTML
+</button>
+<br />
+<div>
+    <br />
+    @((MarkupString)QuillHTMLCodeContent)
+    @QuillHTMLCodeContent
+</div>
+<br />
+
 @code {
     BlazoredTextEditor QuillHtml;
     BlazoredTextEditor QuillNative;
     BlazoredTextEditor QuillReadOnly;
+    BlazoredTextEditor QuillCode;
 
     string QuillHTMLContent;
     string QuillContent;
     string QuillReadOnlyContent =
         @"<span><b>Read Only</b> <u>Content</u></span>";
+    string QuillHTMLCodeContent;
 
     bool mode = false;
 
@@ -215,5 +263,11 @@
     {
         mode = (mode) ? false : true;
         await this.QuillReadOnly.EnableEditor(mode);
+    }
+
+    public async void GetHTMLCode()
+    {
+        QuillHTMLCodeContent = await this.QuillCode.GetHTML();
+        StateHasChanged();
     }
 }

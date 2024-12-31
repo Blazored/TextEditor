@@ -2,13 +2,14 @@
     window.QuillFunctions = {        
         createQuill: function (
             quillElement, toolBar, readOnly,
-            placeholder, theme, formats, debugLevel) {  
+            placeholder, theme, formats, debugLevel, syntax) {  
 
             Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 
             var options = {
                 debug: debugLevel,
                 modules: {
+                    syntax: syntax,
                     toolbar: toolBar,
                     blotFormatter: {}
                 },

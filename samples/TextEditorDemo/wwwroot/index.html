@@ -6,11 +6,14 @@
     <title>TextEditorDemo</title>
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
-    
+
     <!-- If you add any scoped CSS files, uncomment the following to load them
     <link href="TextEditorDemo.styles.css" rel="stylesheet" /> -->
     <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+
+    <!-- Include your favorite highlight.js stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,6 +25,10 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+
+    <!-- Include the highlight.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="_content/Blazored.TextEditor/quill-blot-formatter.min.js"></script>
     <script src="_content/Blazored.TextEditor/Blazored-BlazorQuill.js"></script>

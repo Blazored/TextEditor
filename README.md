@@ -1,18 +1,28 @@
 # Blazored TextEditor
-Rich Text Editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ "Quill JS.com")
 
-![Screenshot](HTMLExample.png)
+<!-- ![Blazored Icon](https://avatars.githubusercontent.com/u/39194025?s=200&v=4 "Blazored Icon") -->
 
-### Sample Applications
+[![Blazor](https://img.shields.io/badge/blazor-5C2D91.svg?style=for-the-badge&logo=blazor&logoColor=white)](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) [![C#](https://img.shields.io/badge/c%23-239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/csharp/)
+
+[![Build & Test Main](https://github.com/Blazored/TextEditor/actions/workflows/ci-main.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/ci-main.yml)
+[![Build & Test PR](https://github.com/Blazored/TextEditor/actions/workflows/ci-pr.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/ci-pr.yml)
+[![CodeQL](https://github.com/Blazored/TextEditor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/codeql-analysis.yml)
+[![Release Drafter](https://github.com/Blazored/TextEditor/actions/workflows/release-drafter.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/release-drafter.yml)
+
+> Rich Text Editor for Blazor applications - Uses [Quill JS](https://quilljs.com/ "Quill JS.com")
+
+![HTML Example](docs/images/HTMLExample.png "HTML Example]")
+
+## Sample Applications
 
 * [Simple blogging application written in Microsoft Server Side Blazor](https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs") - [Contains an example of uploading images]
 
-### Helpful Articles
+## Helpful Articles
 
 * [Creating Reusable Custom Blazor Controls](https://blazorhelpwebsite.com/ViewBlogPost/11 "BlazorHelpWebsite.com")
 * [Creating A Rich Text Editor In Blazor Using Quill](https://blazorhelpwebsite.com/ViewBlogPost/12 "BlazorHelpWebsite.com")
 
-### Installing
+## Installing
 
 You can install from NuGet using the following command:
 
@@ -20,7 +30,8 @@ You can install from NuGet using the following command:
 
 Or via the Visual Studio package manger.
 
-### Setup
+## Setup
+
 Blazor Server applications will need to include the following CSS and JS files in their `Pages\_Host.cshtml` (or `Pages/_Layout.cshtml` if using .Net 6).
 
 In the `head` tag add the following CSS.
@@ -61,6 +72,7 @@ Below is a list of all the options available on the Text Editor.
 - `Placeholder` (Optional - Default: `Compose an epic...`) - The text to show when editor is empty.
 - `Theme` (Optional - Default: `snow`) - Use `snow` to show the Toolbar on top of the editor, and `bubble` for inline editing.
 - `DebugLevel` (Optional - Default: `info`) - Determines the level of debug information returned to the web browser console window. Options are `error`, `warn`, `log`, or `info`.
+- `Syntax` (Optional - Default: `false`) - The Syntax Module enhances the Code Block format by automatically detecting and applying syntax highlighting.
 
 **Methods**
 
@@ -72,9 +84,13 @@ Below is a list of all the options available on the Text Editor.
 - `InsertImage` (`string`) - Inserts an image at the current point in the editor.
 - `InsertText` (`string`) - Inserts text at the current point in the editor.
 
+## Basic Example
 
-### Basic Example
-(see code in the [Index.razor page](https://github.com/Blazored/TextEditor/blob/main/samples/BlazorServerSide/Pages/Index.razor) in the repo for more examples)
+(see code in the [`Index.razor` page](https://github.com/Blazored/TextEditor/blob/main/samples/BlazorServerSide/Pages/Index.razor) in the repo for more examples)
+
+<details>
+<summary>Code</summary>
+
 ```cs
 @using Blazored.TextEditor
 
@@ -146,8 +162,15 @@ string QuillHTMLContent;
 }
 ```
 
+</details>
+
 ### Alternative Using of the BlazoredTextEditor Component
-Depending on our use case, we may want to add some styling to the Toolbar or Editor. We can also place the Toolbar below the Editor by setting the BottomToolbar property to ‘true’ in the BlazoredTextEditor component:
+
+Depending on our use case, we may want to add some styling to the _Toolbar_ or _Editor_. We can also place the _Toolbar_ below the _Editor_ by setting the `BottomToolbar` property to `"true"` in the **BlazoredTextEditor** component:
+
+<details>
+<summary>Code</summary>
+
 ```csharp
 <style>
     .rounded {
@@ -258,11 +281,28 @@ Depending on our use case, we may want to add some styling to the Toolbar or Edi
     }
 }
 ```
+
+</details>
+
+## Screenshots
+
 ![examples_screenshot.png](samples%2FTextEditorDemo%2Fwwwroot%2Fexamples_screenshot.png)
+
 ### Rich Text Screenshot
-![Screenshot](DeltaExample.png)
+
+![Delta Example](docs/images/DeltaExample.png "Delta Example")
+
 ### Read Only Screenshot
-![Screenshot](InlineEditingExample.png)
+
+![Inline Editing Example](docs/images/InlineEditingExample.png "Inline Editing Example")
+
+## Adding Syntax Highlighting
+
+See [Syntax Highlighter Example](docs/SyntaxHighlighterExample.md) docs for more information.
+
+![Syntax Highlighter Example](docs/images/SyntaxHighlighterExample.png "Syntax Highlighter Example")
+
+---
 
 # Blazored TextEditor Forks
 
