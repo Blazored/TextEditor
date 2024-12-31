@@ -174,7 +174,16 @@
 
     public async Task GetHTML()
     {
-        QuillHTMLContent = await this.QuillHtml.GetHTML();
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1));
+
+        try
+        {
+            QuillHTMLContent = await this.QuillHtml.GetHTML(cts.Token);
+        }
+        catch (TaskCanceledException e)
+        {
+            QuillHTMLContent = "<p>ERROR: Timeout</p>";
+        }
     }
 
     public async Task SetHTML()
