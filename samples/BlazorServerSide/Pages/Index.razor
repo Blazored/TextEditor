@@ -38,11 +38,11 @@
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-primary"
-        @onclick="GetHTML">
+@onclick="GetHTML">
     Get HTML
 </button>
 <button class="btn btn-primary"
-        @onclick="SetHTML">
+@onclick="SetHTML">
     Set HTML
 </button>
 <br />
@@ -53,7 +53,7 @@
 </div>
 <br />
 <BlazoredTextEditor @ref="@QuillNative"
-                    Placeholder="Enter non HTML format like centering...">
+Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
             <select class="ql-font">
@@ -97,19 +97,19 @@
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-primary"
-        @onclick="GetContent">
+@onclick="GetContent">
     Get Content
 </button>
 <button class="btn btn-primary"
-        @onclick="LoadContent">
+@onclick="LoadContent">
     Load Content
 </button>
 <button class="btn btn-primary"
-        @onclick="InsertImage">
+@onclick="InsertImage">
     Insert Image
 </button>
 <button class="btn btn-primary"
-        @onclick="InsertText">
+@onclick="InsertText">
     Insert Text
 </button>
 <br />
@@ -120,9 +120,9 @@
 <br />
 <br />
 <BlazoredTextEditor @ref="@QuillReadOnly"
-                    ReadOnly="true"
-                    Theme="bubble"
-                    DebugLevel="log">
+ReadOnly="true"
+Theme="bubble"
+DebugLevel="log">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -156,19 +156,65 @@
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-info"
-        @onclick="ToggleQuillEditor">
+@onclick="ToggleQuillEditor">
     Toggle Editor
 </button>
+
+<hr />
+
+<!-- ----- ----- ----- ----- ----- -->
+<!-- Syntax Highlighter Module -->
+<!-- ----- ----- ----- ----- ----- -->
+<h2>Syntax Highlighter</h2>
+<p>Off</p>
+<BlazoredTextEditor>
+    <ToolbarContent>
+        <span class="ql-formats">
+            <button class="ql-code-block"></button>
+        </span>
+    </ToolbarContent>
+    <EditorContent>
+<pre class="ql-syntax" spellcheck="false">const <span class="hljs-keyword">language</span> <span class="hljs-operator">=</span> "JavaScript";
+console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-operator">+</span> <span class="hljs-keyword">language</span> <span class="hljs-operator">+</span> "!");</pre>
+    </EditorContent>
+</BlazoredTextEditor>
+<p>On</p>
+<BlazoredTextEditor @ref="@QuillCode" Syntax="true">
+    <ToolbarContent>
+        <span class="ql-formats">
+            <button class="ql-code-block"></button>
+        </span>
+    </ToolbarContent>
+    <EditorContent>
+<pre class="ql-syntax" spellcheck="false">const <span class="hljs-keyword">language</span> <span class="hljs-operator">=</span> "JavaScript";
+console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-operator">+</span> <span class="hljs-keyword">language</span> <span class="hljs-operator">+</span> "!");</pre>
+    </EditorContent>
+</BlazoredTextEditor>
+<br />
+<button class="btn btn-primary"
+@onclick="GetHTMLCode">
+    Get HTML
+</button>
+<br />
+<div>
+    <br />
+    @((MarkupString)QuillHTMLCodeContent)
+    @QuillHTMLCodeContent
+</div>
+<br />
+<!-- ----- ----- ----- ----- -->
 
 @code {
     BlazoredTextEditor QuillHtml;
     BlazoredTextEditor QuillNative;
     BlazoredTextEditor QuillReadOnly;
+    BlazoredTextEditor QuillCode;
 
     string QuillHTMLContent;
     string QuillContent;
     string QuillReadOnlyContent = 
         @"<span><b>Read Only</b> <u>Content</u></span>";
+    string QuillHTMLCodeContent;
 
     bool mode = false;
 
@@ -215,5 +261,11 @@
     {
         mode = (mode) ? false : true;
         await this.QuillReadOnly.EnableEditor(mode);
+    }
+
+    public async void GetHTMLCode()
+    {
+        QuillHTMLCodeContent = await this.QuillCode.GetHTML();
+        StateHasChanged();
     }
 }
