@@ -220,41 +220,44 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
 
     bool mode = false;
 
-    public async void GetHTML()
+    public async Task GetHTML()
     {
-        QuillHTMLContent = await this.QuillHtml.GetHTML();
-        StateHasChanged();
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1));
+
+        try
+        {
+            QuillHTMLContent = await this.QuillHtml.GetHTML(cts.Token);
+        }
+        catch (TaskCanceledException e)
+        {
+            QuillHTMLContent = "<p>ERROR: Timeout</p>";
+        }
     }
 
-    public async void SetHTML()
+    public async Task SetHTML()
     {
         string QuillContent =
             @"<a href='http://BlazorHelpWebsite.com/'>" +
             "<img src='images/BlazorHelpWebsite.gif' /></a>";
 
         await this.QuillHtml.LoadHTMLContent(QuillContent);
-        StateHasChanged();
     }
 
-    public async void GetContent()
+    public async Task GetContent()
     {
         QuillContent = await this.QuillNative.GetContent();
-        StateHasChanged();
     }
-    public async void LoadContent()
+    public async Task LoadContent()
     {
         await this.QuillNative.LoadContent(QuillContent);
-        StateHasChanged();
     }
-    public async void InsertImage()
+    public async Task InsertImage()
     {
         await this.QuillNative.InsertImage("images/BlazorHelpWebsite.gif");
-        StateHasChanged();
     }
-    public async void InsertText()
+    public async Task InsertText()
     {
         await this.QuillNative.InsertText("Some Text");
-        StateHasChanged();
     }
     async Task ToggleQuillEditor()
     {
@@ -262,9 +265,8 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
         await this.QuillReadOnly.EnableEditor(mode);
     }
 
-    public async void GetHTMLCode()
+    public async Task GetHTMLCode()
     {
         QuillHTMLCodeContent = await this.QuillCode.GetHTML();
-        StateHasChanged();
     }
 }

@@ -106,16 +106,34 @@
             JSRuntime, QuillElement);
     }
 
+    public async Task<string> GetText(CancellationToken cancellationToken)
+    {
+        return await Interop.GetText(
+            JSRuntime, QuillElement, cancellationToken);
+    }
+
     public async Task<string> GetHTML()
     {
         return await Interop.GetHTML(
             JSRuntime, QuillElement);
     }
 
+    public async Task<string> GetHTML(CancellationToken cancellationToken)
+    {
+        return await Interop.GetHTML(
+            JSRuntime, QuillElement, cancellationToken);
+    }
+
     public async Task<string> GetContent()
     {
         return await Interop.GetContent(
             JSRuntime, QuillElement);
+    }
+
+    public async Task<string> GetContent(CancellationToken cancellationToken)
+    {
+        return await Interop.GetContent(
+            JSRuntime, QuillElement, cancellationToken);
     }
 
     public async Task LoadContent(string Content)
@@ -125,11 +143,25 @@
                 JSRuntime, QuillElement, Content);
     }
 
+    public async Task LoadContent(string Content, CancellationToken cancellationToken)
+    {
+        var QuillDelta =
+            await Interop.LoadQuillContent(
+                JSRuntime, QuillElement, Content, cancellationToken);
+    }
+
     public async Task LoadHTMLContent(string quillHTMLContent)
     {
         var QuillDelta =
             await Interop.LoadQuillHTMLContent(
                 JSRuntime, QuillElement, quillHTMLContent);
+    }
+
+    public async Task LoadHTMLContent(string quillHTMLContent, CancellationToken cancellationToken)
+    {
+        var QuillDelta =
+            await Interop.LoadQuillHTMLContent(
+                JSRuntime, QuillElement, quillHTMLContent, cancellationToken);
     }
 
     public async Task InsertImage(string ImageURL)
@@ -139,6 +171,13 @@
                 JSRuntime, QuillElement, ImageURL);
     }
 
+    public async Task InsertImage(string ImageURL, CancellationToken cancellationToken)
+    {
+        var QuillDelta =
+            await Interop.InsertQuillImage(
+                JSRuntime, QuillElement, ImageURL, cancellationToken);
+    }
+
     public async Task InsertText(string text)
     {
         var QuillDelta =
@@ -146,11 +185,25 @@
                 JSRuntime, QuillElement, text);
     }
 
+    public async Task InsertText(string text, CancellationToken cancellationToken)
+    {
+        var QuillDelta =
+            await Interop.InsertQuillText(
+                JSRuntime, QuillElement, text, cancellationToken);
+    }
+
     public async Task EnableEditor(bool mode)
     {
         var QuillDelta =
             await Interop.EnableQuillEditor(
                 JSRuntime, QuillElement, mode);
+    }
+
+    public async Task EnableEditor(bool mode, CancellationToken cancellationToken)
+    {
+        var QuillDelta =
+            await Interop.EnableQuillEditor(
+                JSRuntime, QuillElement, mode, cancellationToken);
     }
 
 }

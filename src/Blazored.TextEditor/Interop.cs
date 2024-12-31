@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Blazored.TextEditor
@@ -25,78 +26,94 @@ namespace Blazored.TextEditor
 
         internal static ValueTask<string> GetText(
             IJSRuntime jsRuntime,
-            ElementReference quillElement)
+            ElementReference quillElement,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<string>(
-                "QuillFunctions.getQuillText", 
+                "QuillFunctions.getQuillText",
+                cancellationToken,
                 quillElement);
         }
 
         internal static ValueTask<string> GetHTML(
             IJSRuntime jsRuntime,
-            ElementReference quillElement)
+            ElementReference quillElement,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<string>(
-                "QuillFunctions.getQuillHTML", 
+                "QuillFunctions.getQuillHTML",
+                cancellationToken,
                 quillElement);
         }
 
         internal static ValueTask<string> GetContent(
             IJSRuntime jsRuntime,
-            ElementReference quillElement)
+            ElementReference quillElement,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<string>(
-                "QuillFunctions.getQuillContent", 
+                "QuillFunctions.getQuillContent",
+                cancellationToken,
                 quillElement);
         }
 
         internal static ValueTask<object> LoadQuillContent(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            string Content)
+            string Content,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
-                "QuillFunctions.loadQuillContent", 
+                "QuillFunctions.loadQuillContent",
+                cancellationToken,
                 quillElement, Content);
         }
 
         internal static ValueTask<object> LoadQuillHTMLContent(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            string quillHTMLContent)
+            string quillHTMLContent,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.loadQuillHTMLContent",
+                cancellationToken,
                 quillElement, quillHTMLContent);
         }
 
         internal static ValueTask<object> EnableQuillEditor(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            bool mode)
+            bool mode,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
-                "QuillFunctions.enableQuillEditor", 
+                "QuillFunctions.enableQuillEditor",
+                cancellationToken,
                 quillElement, mode);
         }
 
         internal static ValueTask<object> InsertQuillImage(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            string imageURL)
+            string imageURL,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.insertQuillImage",
+                cancellationToken,
                 quillElement, imageURL);
         }
 
         internal static ValueTask<object> InsertQuillText(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            string text)
+            string text,
+            CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.insertQuillText",
+                cancellationToken,
                 quillElement, text);
         }
     }

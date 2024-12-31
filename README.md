@@ -146,20 +146,18 @@ Below is a list of all the options available on the Text Editor.
 BlazoredTextEditor QuillHtml;
 string QuillHTMLContent;
 
-    public async void GetHTML()
+    public async Task GetHTML()
     {
         QuillHTMLContent = await this.QuillHtml.GetHTML();
-        StateHasChanged();
     }
 
-    public async void SetHTML()
+    public async Task SetHTML()
     {
         string QuillContent =
             @"<a href='http://BlazorHelpWebsite.com/'>" +
             "<img src='images/BlazorHelpWebsite.gif' /></a>";
 
         await this.QuillHtml.LoadHTMLContent(QuillContent);
-        StateHasChanged();
     }
 }
 ```
