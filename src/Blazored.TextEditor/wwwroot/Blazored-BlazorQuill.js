@@ -22,7 +22,7 @@
                 options.formats = formats;
             }
 
-            new Quill(quillElement, options);
+            quillElement.__quill = new Quill(quillElement, options);
         },
         getQuillContent: function(quillElement) {
             return JSON.stringify(quillElement.__quill.getContents());
