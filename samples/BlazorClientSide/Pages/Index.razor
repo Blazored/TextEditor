@@ -265,9 +265,8 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
         await this.QuillReadOnly.EnableEditor(mode);
     }
 
-    public async void GetHTMLCode()
+    public async Task GetHTMLCode()
     {
         QuillHTMLCodeContent = await this.QuillCode.GetHTML();
-        StateHasChanged();
     }
 }
