@@ -1,8 +1,8 @@
 ﻿(function () {
-    window.QuillFunctions = {        
+    window.QuillFunctions = {
         createQuill: function (
             quillElement, toolBar, readOnly,
-            placeholder, theme, formats, debugLevel) {  
+            placeholder, theme, formats, debugLevel) {
 
             Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 
@@ -21,53 +21,53 @@
                 options.formats = formats;
             }
 
-            new Quill(quillElement, options);
+            return new Quill(quillElement, options);
         },
-        getQuillContent: function(quillElement) {
-            return JSON.stringify(quillElement.__quill.getContents());
+        getQuillContent: function (quill) {
+            return JSON.stringify(quill.getContents());
         },
-        getQuillText: function(quillElement) {
-            return quillElement.__quill.getText();
+        getQuillText: function (quill) {
+            return quill.getText();
         },
-        getQuillHTML: function(quillElement) {
-            return quillElement.__quill.root.innerHTML;
+        getQuillHTML: function (quill) {
+            return quill.root.innerHTML;
         },
-        loadQuillContent: function(quillElement, quillContent) {
+        loadQuillContent: function (quill, quillContent) {
             content = JSON.parse(quillContent);
-            return quillElement.__quill.setContents(content, 'api');
+            return quill.setContents(content, 'api');
         },
-        loadQuillHTMLContent: function (quillElement, quillHTMLContent) {
-            return quillElement.__quill.root.innerHTML = quillHTMLContent;
+        loadQuillHTMLContent: function (quill, quillHTMLContent) {
+            return quill.root.innerHTML = quillHTMLContent;
         },
-        enableQuillEditor: function (quillElement, mode) {
-            quillElement.__quill.enable(mode);
+        enableQuillEditor: function (quill, mode) {
+            quill.enable(mode);
         },
-        insertQuillImage: function (quillElement, imageURL) {
+        insertQuillImage: function (quill, imageURL) {
             var Delta = Quill.import('delta');
             editorIndex = 0;
 
-            if (quillElement.__quill.getSelection() !== null) {
-                editorIndex = quillElement.__quill.getSelection().index;
+            if (quill.getSelection() !== null) {
+                editorIndex = quill.getSelection().index;
             }
 
-            return quillElement.__quill.updateContents(
+            return quill.updateContents(
                 new Delta()
                     .retain(editorIndex)
                     .insert({ image: imageURL },
                         { alt: imageURL }));
         },
-        insertQuillText: function (quillElement, text) {
+        insertQuillText: function (quill, text) {
             editorIndex = 0;
             selectionLength = 0;
 
-            if (quillElement.__quill.getSelection() !== null) {
-                selection = quillElement.__quill.getSelection();
+            if (quill.getSelection() !== null) {
+                selection = quill.getSelection();
                 editorIndex = selection.index;
                 selectionLength = selection.length;
             }
 
-            return quillElement.__quill.deleteText(editorIndex, selectionLength)
-                .concat(quillElement.__quill.insertText(editorIndex, text));
+            return quill.deleteText(editorIndex, selectionLength)
+                .concat(quill.insertText(editorIndex, text));
         }
     };
 })();

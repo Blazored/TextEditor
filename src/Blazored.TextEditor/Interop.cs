@@ -7,7 +7,7 @@ namespace Blazored.TextEditor
 {
     public static class Interop
     {
-        internal static ValueTask<object> CreateQuill(
+        internal static ValueTask<IJSObjectReference> CreateQuill(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             ElementReference toolbar,
@@ -17,103 +17,103 @@ namespace Blazored.TextEditor
             string[] formats,
             string debugLevel)
         {
-            return jsRuntime.InvokeAsync<object>(
-                "QuillFunctions.createQuill", 
-                quillElement, toolbar, readOnly, 
+            return jsRuntime.InvokeAsync<IJSObjectReference>(
+                "QuillFunctions.createQuill",
+                quillElement, toolbar, readOnly,
                 placeholder, theme, formats, debugLevel);
         }
 
         internal static ValueTask<string> GetText(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<string>(
                 "QuillFunctions.getQuillText",
                 cancellationToken,
-                quillElement);
+                quillObject);
         }
 
         internal static ValueTask<string> GetHTML(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<string>(
                 "QuillFunctions.getQuillHTML",
                 cancellationToken,
-                quillElement);
+                quillObject);
         }
 
         internal static ValueTask<string> GetContent(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<string>(
                 "QuillFunctions.getQuillContent",
                 cancellationToken,
-                quillElement);
+                quillObject);
         }
 
         internal static ValueTask<object> LoadQuillContent(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             string Content,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.loadQuillContent",
                 cancellationToken,
-                quillElement, Content);
+                quillObject, Content);
         }
 
         internal static ValueTask<object> LoadQuillHTMLContent(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             string quillHTMLContent,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.loadQuillHTMLContent",
                 cancellationToken,
-                quillElement, quillHTMLContent);
+                quillObject, quillHTMLContent);
         }
 
-        internal static ValueTask<object> EnableQuillEditor(
+        internal static ValueTask EnableQuillEditor(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             bool mode,
             CancellationToken cancellationToken = default)
         {
-            return jsRuntime.InvokeAsync<object>(
+            return jsRuntime.InvokeVoidAsync(
                 "QuillFunctions.enableQuillEditor",
                 cancellationToken,
-                quillElement, mode);
+                quillObject, mode);
         }
 
         internal static ValueTask<object> InsertQuillImage(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             string imageURL,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.insertQuillImage",
                 cancellationToken,
-                quillElement, imageURL);
+                quillObject, imageURL);
         }
 
         internal static ValueTask<object> InsertQuillText(
             IJSRuntime jsRuntime,
-            ElementReference quillElement,
+            IJSObjectReference quillObject,
             string text,
             CancellationToken cancellationToken = default)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.insertQuillText",
                 cancellationToken,
-                quillElement, text);
+                quillObject, text);
         }
     }
 }
