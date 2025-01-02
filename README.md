@@ -307,3 +307,4 @@ See [Syntax Highlighter Example](docs/SyntaxHighlighterExample.md) docs for more
 # Blazored TextEditor Forks
 
 * [WYSIWYGTextEditor](https://github.com/somegenericdev/WYSIWYGTextEditor)
+
