@@ -27,6 +27,7 @@
         </span>
         <span class="ql-formats">
             <button class="ql-link"></button>
+            <button class="ql-image"></button>
         </span>
     </ToolbarContent>
     <EditorContent>
@@ -224,9 +225,26 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
 
         try
         {
+#if NET6_0_OR_GREATER
+            await using var streamReference = await this.QuillHtml.GetHTMLAsStream(cts.Token);
+
+            const long MaxAllowedSize = 5_000_000; // 5MB
+
+            if (streamReference.Length > MaxAllowedSize)
+            {
+                QuillHTMLContent = $"<p>ERROR: Maximum allowed size exceeded ({streamReference.Length} / {MaxAllowedSize})</p>";
+            }
+            else
+            {
+                using var stream = await streamReference.OpenReadStreamAsync(MaxAllowedSize, cts.Token);
+                using var streamReader = new StreamReader(stream);
+                QuillHTMLContent = await streamReader.ReadToEndAsync().WaitAsync(cts.Token);
+            }
+#else
             QuillHTMLContent = await this.QuillHtml.GetHTML(cts.Token);
+#endif
         }
-        catch (TaskCanceledException e)
+        catch (TaskCanceledException)
         {
             QuillHTMLContent = "<p>ERROR: Timeout</p>";
         }
