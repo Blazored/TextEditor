@@ -33,6 +33,9 @@
         getQuillHTML: function(quillElement) {
             return quillElement.__quill.root.innerHTML;
         },
+        getQuillEncodedHTML: function(quillElement) {
+            return new TextEncoder().encode(quillElement.__quill.root.innerHTML);
+        },
         loadQuillContent: function(quillElement, quillContent) {
             content = JSON.parse(quillContent);
             return quillElement.__quill.setContents(content, 'api');

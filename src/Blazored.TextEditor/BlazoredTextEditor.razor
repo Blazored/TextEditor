@@ -124,6 +124,20 @@
             JSRuntime, QuillElement, cancellationToken);
     }
 
+#if NET6_0_OR_GREATER
+    public async Task<IJSStreamReference> GetHTMLAsStream()
+    {
+        return await Interop.GetHTMLAsStream(
+            JSRuntime, QuillElement);
+    }
+
+    public async Task<IJSStreamReference> GetHTMLAsStream(CancellationToken cancellationToken)
+    {
+        return await Interop.GetHTMLAsStream(
+            JSRuntime, QuillElement, cancellationToken);
+    }
+#endif
+
     public async Task<string> GetContent()
     {
         return await Interop.GetContent(

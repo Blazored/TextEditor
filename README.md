@@ -88,6 +88,7 @@ Below is a list of all the options available on the Text Editor.
 
 - `GetText` - Gets the content of the editor as Text.
 - `GetHTML` - Gets the content of the editor as HTML.
+- `GetHTMLAsStream` - Gets the content of the editor as HTML stream (requires .NET 6.0 or later).
 - `GetContent` - Gets the content of the editor in the native Quill JSON Delta format.
 - `LoadContent` (`json`) - Allows the content of the editor to be programmatically set.
 - `LoadHTMLContent` (`string`) - Allows the content of the editor to be programmatically set.
