@@ -5,6 +5,7 @@
 [![Blazor](https://img.shields.io/badge/blazor-5C2D91.svg?style=for-the-badge&logo=blazor&logoColor=white)](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) [![C#](https://img.shields.io/badge/c%23-239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 
 [![Build & Test Main](https://github.com/Blazored/TextEditor/actions/workflows/ci-main.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/ci-main.yml)
+[![pages-build-deployment](https://github.com/Blazored/TextEditor/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/pages/pages-build-deployment)
 [![Build & Test PR](https://github.com/Blazored/TextEditor/actions/workflows/ci-pr.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/ci-pr.yml)
 [![CodeQL](https://github.com/Blazored/TextEditor/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/codeql-analysis.yml)
 [![Release Drafter](https://github.com/Blazored/TextEditor/actions/workflows/release-drafter.yml/badge.svg)](https://github.com/Blazored/TextEditor/actions/workflows/release-drafter.yml)
@@ -15,6 +16,12 @@
 
 ## Sample Applications
 
+The [TextEditorDemo](samples/TextEditorDemo) has deployed via GitHub Pages:
+
+- https://blazored.github.io/TextEditor/
+
+You can also see it in action with:
+
 * [Simple blogging application written in Microsoft Server Side Blazor](https://github.com/ADefWebserver/Blazor-Blogs "Blazor Blogs") - [Contains an example of uploading images]
 
 ## Helpful Articles
@@ -23,6 +30,9 @@
 * [Creating A Rich Text Editor In Blazor Using Quill](https://blazorhelpwebsite.com/ViewBlogPost/12 "BlazorHelpWebsite.com")
 
 ## Installing
+
+[![NuGet Version](https://img.shields.io/nuget/v/blazored.TextEditor.svg?logo=nuget "NuGet Version")](https://www.nuget.org/packages/Blazored.TextEditor/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Blazored.TextEditor?logo=nuget "NuGet Downloads")](https://www.nuget.org/packages/Blazored.TextEditor/)
 
 You can install from NuGet using the following command:
 
@@ -307,4 +317,3 @@ See [Syntax Highlighter Example](docs/SyntaxHighlighterExample.md) docs for more
 # Blazored TextEditor Forks
 
 * [WYSIWYGTextEditor](https://github.com/somegenericdev/WYSIWYGTextEditor)
-
