@@ -76,5 +76,5 @@ jobs:
           ACCESS_TOKEN: $GITHUB_TOKEN
           BASE_BRANCH: main # The branch the action should deploy from.
           BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: samples/TextEditorDemo/bin/Release/net7.0/publish/wwwroot # The folder the action should deploy.
+          FOLDER: samples/TextEditorDemo/bin/Release/net9.0/publish/wwwroot # The folder the action should deploy.
           SINGLE_COMMIT: true
