@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net9.0</TargetFrameworks>
     <RazorLangVersion>3.0</RazorLangVersion>
     <RootNamespace>Blazored.TextEditor</RootNamespace>
 
     <Authors>Michael Washington</Authors>
     <Company>Michael Washington</Company>
     <Description>Rich text editor for Blazor applications - Uses Quill JS</Description>
-    <Copyright>Copyright 2022 (c) Michael Washington. All rights reserved.</Copyright>
+    <Copyright>Copyright 2025 (c) Michael Washington. All rights reserved.</Copyright>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 

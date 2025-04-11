@@ -19,8 +19,8 @@ namespace Blazored.TextEditor
             bool syntax)
         {
             return jsRuntime.InvokeAsync<object>(
-                "QuillFunctions.createQuill", 
-                quillElement, toolbar, readOnly, 
+                "QuillFunctions.createQuill",
+                quillElement, toolbar, readOnly,
                 placeholder, theme, formats, debugLevel, syntax);
         }
 
@@ -46,18 +46,6 @@ namespace Blazored.TextEditor
                 quillElement);
         }
 
-#if NET6_0_OR_GREATER
-        internal static ValueTask<IJSStreamReference> GetHTMLAsStream(
-            IJSRuntime jsRuntime,
-            ElementReference quillElement,
-            CancellationToken cancellationToken = default)
-        {
-            return jsRuntime.InvokeAsync<IJSStreamReference>(
-                "QuillFunctions.getQuillEncodedHTML",
-                cancellationToken,
-                quillElement);
-        }
-#endif
 
         internal static ValueTask<string> GetContent(
             IJSRuntime jsRuntime,
