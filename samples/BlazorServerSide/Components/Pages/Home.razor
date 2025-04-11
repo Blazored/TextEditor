@@ -39,11 +39,11 @@
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-primary"
-@onclick="GetHTML">
+        @onclick="GetHTML">
     Get HTML
 </button>
 <button class="btn btn-primary"
-@onclick="SetHTML">
+        @onclick="SetHTML">
     Set HTML
 </button>
 <br />
@@ -54,7 +54,7 @@
 </div>
 <br />
 <BlazoredTextEditor @ref="@QuillNative"
-Placeholder="Enter non HTML format like centering...">
+                    Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
             <select class="ql-font">
@@ -98,19 +98,19 @@ Placeholder="Enter non HTML format like centering...">
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-primary"
-@onclick="GetContent">
+        @onclick="GetContent">
     Get Content
 </button>
 <button class="btn btn-primary"
-@onclick="LoadContent">
+        @onclick="LoadContent">
     Load Content
 </button>
 <button class="btn btn-primary"
-@onclick="InsertImage">
+        @onclick="InsertImage">
     Insert Image
 </button>
 <button class="btn btn-primary"
-@onclick="InsertText">
+        @onclick="InsertText">
     Insert Text
 </button>
 <br />
@@ -121,9 +121,9 @@ Placeholder="Enter non HTML format like centering...">
 <br />
 <br />
 <BlazoredTextEditor @ref="@QuillReadOnly"
-ReadOnly="true"
-Theme="bubble"
-DebugLevel="log">
+                    ReadOnly="true"
+                    Theme="bubble"
+                    DebugLevel="log">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -157,7 +157,7 @@ DebugLevel="log">
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-info"
-@onclick="ToggleQuillEditor">
+        @onclick="ToggleQuillEditor">
     Toggle Editor
 </button>
 
@@ -193,7 +193,7 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
 </BlazoredTextEditor>
 <br />
 <button class="btn btn-primary"
-@onclick="GetHTMLCode">
+        @onclick="GetHTMLCode">
     Get HTML
 </button>
 <br />
@@ -204,7 +204,6 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
 </div>
 <br />
 <!-- ----- ----- ----- ----- -->
-
 @code {
     BlazoredTextEditor QuillHtml;
     BlazoredTextEditor QuillNative;
@@ -225,24 +224,7 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
 
         try
         {
-#if NET6_0_OR_GREATER
-            await using var streamReference = await this.QuillHtml.GetHTMLAsStream(cts.Token);
-
-            const long MaxAllowedSize = 5_000_000; // 5MB
-
-            if (streamReference.Length > MaxAllowedSize)
-            {
-                QuillHTMLContent = $"<p>ERROR: Maximum allowed size exceeded ({streamReference.Length} / {MaxAllowedSize})</p>";
-            }
-            else
-            {
-                using var stream = await streamReference.OpenReadStreamAsync(MaxAllowedSize, cts.Token);
-                using var streamReader = new StreamReader(stream);
-                QuillHTMLContent = await streamReader.ReadToEndAsync().WaitAsync(cts.Token);
-            }
-#else
             QuillHTMLContent = await this.QuillHtml.GetHTML(cts.Token);
-#endif
         }
         catch (TaskCanceledException)
         {
