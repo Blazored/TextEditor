@@ -42,7 +42,7 @@ Or via the Visual Studio package manger.
 
 ## Setup
 
-Blazor Server applications will need to include the following CSS and JS files in their `Pages\_Host.cshtml` (or `Pages/_Layout.cshtml` if using .Net 6).
+Add the following CSS and JS files to the `wwwroot\index.html` file if using Blazor WebAssembly standalone or the `Components\App.razor` file if using Blazor Server:
 
 In the `head` tag add the following CSS.
 
