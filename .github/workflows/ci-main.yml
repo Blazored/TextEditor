@@ -67,7 +67,7 @@ jobs:
       - name: Rewrite base href
         uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
         with:
-          html_path: samples/TextEditorDemo/bin/Release/net7.0/publish/wwwroot/index.html
+          html_path: samples/TextEditorDemo/bin/Release/net9.0/publish/wwwroot/index.html
           base_href: /${{ env.PROJECT_NAME }}/
 
       - name: Deploy to Github Pages
