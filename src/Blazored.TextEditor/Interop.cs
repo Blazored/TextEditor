@@ -27,7 +27,7 @@ namespace Blazored.TextEditor
         internal static ValueTask<string> GetText(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<string>(
                 "QuillFunctions.getQuillText",
@@ -38,7 +38,7 @@ namespace Blazored.TextEditor
         internal static ValueTask<string> GetHTML(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<string>(
                 "QuillFunctions.getQuillHTML",
@@ -50,7 +50,7 @@ namespace Blazored.TextEditor
         internal static ValueTask<string> GetContent(
             IJSRuntime jsRuntime,
             ElementReference quillElement,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<string>(
                 "QuillFunctions.getQuillContent",
@@ -62,7 +62,7 @@ namespace Blazored.TextEditor
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             string Content,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.loadQuillContent",
@@ -74,7 +74,7 @@ namespace Blazored.TextEditor
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             string quillHTMLContent,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.loadQuillHTMLContent",
@@ -86,7 +86,7 @@ namespace Blazored.TextEditor
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             bool mode,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.enableQuillEditor",
@@ -98,7 +98,7 @@ namespace Blazored.TextEditor
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             string imageURL,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.insertQuillImage",
@@ -110,7 +110,7 @@ namespace Blazored.TextEditor
             IJSRuntime jsRuntime,
             ElementReference quillElement,
             string text,
-            CancellationToken cancellationToken = default)
+            CancellationToken cancellationToken)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.insertQuillText",
