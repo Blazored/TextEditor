@@ -1,7 +1,9 @@
 ﻿@page "/"
 @using Blazored.TextEditor
 
-<BlazoredTextEditor @ref="@QuillHtml">
+<BlazoredTextEditor @ref="@QuillHtml"
+                    EditorId="QuillEditor1"
+                    ToolbarId="QuillToolBar1">
     <ToolbarContent>
         <select class="ql-header">
             <option selected=""></option>
@@ -53,6 +55,8 @@
 </div>
 <br />
 <BlazoredTextEditor @ref="@QuillNative"
+                    EditorId="QuillEditor2"
+                    ToolbarId="QuillToolBar2"
                     Placeholder="Enter non HTML format like centering...">
     <ToolbarContent>
         <span class="ql-formats">
@@ -120,6 +124,8 @@
 <br />
 <br />
 <BlazoredTextEditor @ref="@QuillReadOnly"
+                    EditorId="QuillEditor3"
+                    ToolbarId="QuillToolBar3"
                     ReadOnly="true"
                     Theme="bubble"
                     DebugLevel="log">
@@ -167,7 +173,8 @@
 <!-- ----- ----- ----- ----- ----- -->
 <h2>Syntax Highlighter</h2>
 <p>Off</p>
-<BlazoredTextEditor>
+<BlazoredTextEditor EditorId="QuillEditor4"
+                    ToolbarId="QuillToolBar4">
     <ToolbarContent>
         <span class="ql-formats">
             <button class="ql-code-block"></button>
@@ -181,7 +188,10 @@ console.<span class="hljs-built_in">log</span>("I love " <span class="hljs-opera
 </BlazoredTextEditor>
 
 <p>On</p>
-<BlazoredTextEditor @ref="@QuillCode" Syntax="true">
+<BlazoredTextEditor @ref="@QuillCode"
+                    EditorId="QuillEditor5"
+                    ToolbarId="QuillToolBar5"
+                    Syntax="true">
     <ToolbarContent>
         <span class="ql-formats">
             <button class="ql-code-block"></button>
