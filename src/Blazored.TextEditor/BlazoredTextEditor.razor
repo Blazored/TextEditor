@@ -2,21 +2,37 @@
 
 @if (!BottomToolbar)
 {
-    <div class="@ToolbarCSSClass" id="QuillToolBar" @ref="@ToolBar" style="@ToolbarCssStyle">
+    <div class="@ToolbarCSSClass" id="@GetToolbarId()" @ref="@ToolBar" style="@ToolbarCssStyle">
         @ToolbarContent
     </div>
 }
-<div class="@EditorCssClass" id="QuillEditor" @ref="@QuillElement" style="@EditorCssStyle">
+<div class="@EditorCssClass" id="@EditorId" @ref="@QuillElement" style="@EditorCssStyle">
     @EditorContent
 </div>
 @if (BottomToolbar)
 {
-    <div class="@ToolbarCSSClass" id="QuillBottomToolbar" @ref="@ToolBar" style="@ToolbarCssStyle">
+    <div class="@ToolbarCSSClass" id="@GetToolbarId()" @ref="@ToolBar" style="@ToolbarCssStyle">
         @ToolbarContent
     </div>
 }
 
 @code {
+    /// <summary>
+    /// Set a custom id for the editor. Recommended if you have multiple BlazoredTextEditors on the same page.
+    /// </summary>
+    [Parameter]
+    public string EditorId { get; set; } = "QuillEditor";
+
+    /// <summary>
+    /// Set a custom id for the toolbar. Recommended if you have multiple BlazoredTextEditors on the same page.
+    /// </summary>
+    [Parameter]
+    public string ToolbarId { get; set; } = null;
+
+    private string GetToolbarId()
+    {
+        return ToolbarId ?? (!BottomToolbar ? "QuillToolBar" : "QuillBottomToolbar");
+    }
 
     [Parameter]
     public RenderFragment EditorContent { get; set; }
