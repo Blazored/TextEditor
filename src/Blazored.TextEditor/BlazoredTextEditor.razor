@@ -44,6 +44,13 @@
     public bool ReadOnly { get; set; }
         = false;
 
+    /// <summary>
+    /// Pass in initial quill 'delta' content to be rendered.
+    /// Not required. Can be empty or null.
+    /// </summary>
+    [Parameter]
+    public string InitialContent { get; set; } = string.Empty;
+
     [Parameter]
     public string Placeholder { get; set; }
         = "Compose an epic...";
@@ -97,6 +104,14 @@
     private ElementReference QuillElement;
     private ElementReference ToolBar;
 
+
+    /// <summary>
+    /// This is set to return false always. This prevent any re-rendering of this component when changes are made or other
+    /// blazor rednering events would cause this component to re-render causing current content to be erased
+    /// </summary>
+    /// <returns></returns>
+    protected override bool ShouldRender() => false;
+
     protected override async Task
         OnAfterRenderAsync(bool firstRender)
     {
@@ -113,6 +128,9 @@
                 DebugLevel,
                 Syntax
             );
+
+            if (!string.IsNullOrWhiteSpace(InitialContent))
+                await LoadContent(InitialContent);
         }
     }
 
