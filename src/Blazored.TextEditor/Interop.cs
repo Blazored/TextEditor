@@ -16,12 +16,13 @@ namespace Blazored.TextEditor
             string theme,
             string[] formats,
             string debugLevel,
-            bool syntax)
+            bool syntax,
+            DotNetObjectReference<BlazoredTextEditor> reference)
         {
             return jsRuntime.InvokeAsync<object>(
                 "QuillFunctions.createQuill",
                 quillElement, toolbar, readOnly,
-                placeholder, theme, formats, debugLevel, syntax);
+                placeholder, theme, formats, debugLevel, syntax, reference);
         }
 
         internal static ValueTask<string> GetText(

@@ -1,4 +1,6 @@
-﻿@inject IJSRuntime JSRuntime
+﻿@using System.ComponentModel
+@using System.Text.Json
+@inject IJSRuntime JSRuntime
 
 @if (!BottomToolbar)
 {
@@ -43,6 +45,13 @@
     [Parameter]
     public bool ReadOnly { get; set; }
         = false;
+
+    /// <summary>
+    /// Pass in initial quill 'delta' content to be rendered.
+    /// Not required. Can be empty or null.
+    /// </summary>
+    //[Parameter]
+    //public string InitialContent { get; set; } = string.Empty;
 
     [Parameter]
     public string Placeholder { get; set; }
@@ -94,8 +103,17 @@
     [Parameter]
     public bool Syntax { get; set; }
 
+    [Parameter]
+    public string Content { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ContentChanged { get; set; }
+
     private ElementReference QuillElement;
     private ElementReference ToolBar;
+    private DotNetObjectReference<BlazoredTextEditor> _ObjectReference;
+
+    private bool IsRendered = false;
 
     protected override async Task
         OnAfterRenderAsync(bool firstRender)
@@ -111,9 +129,42 @@
                 Theme,
                 Formats,
                 DebugLevel,
-                Syntax
+                Syntax,
+                _ObjectReference
+
             );
+
+            await LoadContent();
         }
+        if (!IsRendered)
+        {
+            await LoadContent();
+        }
+    }
+
+    private string previousContent = string.Empty;
+
+    private async Task LoadContent()
+    {
+        if (!string.IsNullOrWhiteSpace(Content))
+            await LoadContent(Content);
+        previousContent = Content;
+        IsRendered = true;
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (Content !=previousContent)
+        {
+            IsRendered = false;
+        }
+
+    }
+
+
+    protected override void OnInitialized()
+    {
+        _ObjectReference = DotNetObjectReference.Create(this);
     }
 
     public async Task<string> GetText()
@@ -221,5 +272,31 @@
             await Interop.EnableQuillEditor(
                 JSRuntime, QuillElement, mode, cancellationToken);
     }
+
+    private async Task GetQuill()
+    {
+        if (IsRendered)
+        {
+            Content = await GetContent();
+            await ContentChanged.InvokeAsync(Content);
+        }
+
+    }
+
+
+    [JSInvokable("DeltaChanged")]
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public async Task OnChange(JsonElement delta)
+    {
+        if (DebugLevel.Equals("info"))
+        {
+            Console.WriteLine($"Quill Editor Element: {EditorId} Invoked Change in Blazor");
+            Console.WriteLine("    Contents:" + delta.ToString());
+        }
+        await ContentChanged.InvokeAsync(delta.ToString());
+    }
+
+
+
 
 }
