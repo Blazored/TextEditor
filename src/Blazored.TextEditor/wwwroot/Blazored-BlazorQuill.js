@@ -1,8 +1,13 @@
 ﻿(function () {
+
+
     window.QuillFunctions = {        
+
+        dotNetRefs: new Map(),
+
         createQuill: function (
             quillElement, toolBar, readOnly,
-            placeholder, theme, formats, debugLevel, syntax) {  
+            placeholder, theme, formats, debugLevel, syntax, dotNetObjectRef) {  
 
             Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 
@@ -23,6 +28,19 @@
             }
 
             quillElement.__quill = new Quill(quillElement, options);
+
+            QuillFunctions.dotNetRefs.set(quillElement.id, dotNetObjectRef);
+
+            //On Blur - we update the object in dotnet
+            quillElement.__quill.editor.scroll.domNode.addEventListener('blur',
+                () => {
+                    if (quillElement.__quill.options.debug === "info") {
+                        console.log('info: Quill Editor blur event for ' + quillElement.id);
+                    }
+                    QuillFunctions.dotNetRefs.get(quillElement.id).invokeMethodAsync('DeltaChanged', QuillFunctions.getQuillContent(quillElement));
+                }
+            );
+
         },
         getQuillContent: function(quillElement) {
             return JSON.stringify(quillElement.__quill.getContents());
